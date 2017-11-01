@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grab : MonoBehaviour {
+public class Grab : MonoBehaviour
+{
 
     public GameObject grabbedObject;
     public bool grabbing = false;
@@ -12,15 +13,10 @@ public class Grab : MonoBehaviour {
     Rigidbody myRb;
     Rigidbody goRb;
     public float mySpeed = 5f;
-    public Material grabMat;
-    public Material OGMat; 
+    public Material OGMat;
     
-
-
-
-    //DEBUG
-    //public bool rHitisTrue = false;
-    //public bool lHitisTrue = false;
+    //Needs to be set in Editor
+    public Material grabMat;
 
 
     // Use this for initialization
@@ -33,14 +29,14 @@ public class Grab : MonoBehaviour {
 	void Update ()
     {        
 
-        //Poker movement
+        //Poker movement - PC
         float moveY = Input.GetAxis("Up");
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveVertical, moveY, moveHorizontal);
         myRb.velocity = movement * mySpeed;
-        //Poker movement
+        //Poker movement - PC
 
 
         //Sets the Grabbed objects Rigidbody properties
@@ -114,8 +110,11 @@ public class Grab : MonoBehaviour {
 
         if (grabbedObject != null)
         {
+            //Saves grabbed object Material and Sets a new one while grabbed
             OGMat = grabbedObject.GetComponent<Renderer>().material;
             grabbedObject.GetComponent<Renderer>().material = grabMat;
+
+            //Adds Joint componenet
             grabJoint = gameObject.AddComponent<FixedJoint>();
             grabJoint.connectedBody = grabbedObject.GetComponent<Rigidbody>();
         }
@@ -198,6 +197,7 @@ public class Grab : MonoBehaviour {
         if (fHits != null)
         {
             grabbing = true;
+
             if (fHits.Length > 0)
             {
                 int closestHit = 0;
@@ -216,6 +216,7 @@ public class Grab : MonoBehaviour {
         if (bHits != null)
         {
             grabbing = true;
+
             if (bHits.Length > 0)
             {
                 int closestHit = 0;
@@ -234,7 +235,7 @@ public class Grab : MonoBehaviour {
         if (rHits != null)
         {
             grabbing = true;
-            //rHitisTrue = true;
+           
             if (rHits.Length > 0)
             {
                 int closestHit = 0;
@@ -253,7 +254,7 @@ public class Grab : MonoBehaviour {
         if (lHits != null)
         {
             grabbing = true;
-            //lHitisTrue = true;
+           
             if (lHits.Length > 0)
             {
                 int closestHit = 0;

@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraRotate : MonoBehaviour {
+public class CameraRotate : MonoBehaviour
+{
+    //
+    // Rotates the Camera using the mouse
+    //
 
     public GameObject target;
     public float rotateSpeed = 5;
@@ -13,6 +17,7 @@ public class CameraRotate : MonoBehaviour {
         offset = target.transform.position - transform.position;
     }
 
+    //Simple mouse based Camera controls
     void LateUpdate()
     {
         float horizontal = Input.GetAxis("Mouse X") * rotateSpeed;
