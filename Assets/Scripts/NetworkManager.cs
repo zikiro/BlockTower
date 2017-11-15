@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class NetworkManager : Photon.PunBehaviour {
 
@@ -43,7 +44,15 @@ public class NetworkManager : Photon.PunBehaviour {
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        GameObject Player = PhotonNetwork.Instantiate("playerprefab", new Vector3(0, 1.88f, -4.37f), Quaternion.identity, 0);
+        base.OnJoinedRoom();
+        if (XRDevice.isPresent == true)
+        {
+            GameObject Player = PhotonNetwork.Instantiate("VRplayerprefab", new Vector3(0.96f, 1.2f, -6.03f), Quaternion.identity, 0);
+        }
+        else
+        {
+            GameObject Player = PhotonNetwork.Instantiate("playerprefab", new Vector3(0, 1.88f, -4.37f), Quaternion.identity, 0);
+        }
         Color Rando = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         Player.GetComponent<Renderer>().material.SetColor("_Color",Rando);
         
