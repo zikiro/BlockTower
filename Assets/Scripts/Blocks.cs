@@ -13,6 +13,7 @@ public class Blocks : MonoBehaviour
     public Quaternion StartRotation;
     public float groundedHeight = .5f;
     public bool grounded = false;
+    public PhotonView myView;
 
     // Use this for initialization
     void Start ()
@@ -25,6 +26,8 @@ public class Blocks : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+
+
         //Only triggers when blocks are in motion
 		if(MyRB.IsSleeping() == false)
         {
@@ -49,6 +52,7 @@ public class Blocks : MonoBehaviour
         grounded = false;
     }
 
+    
     //Returns true if block is lower than the groundedHeight
     public bool isGrounded()
     {
@@ -60,4 +64,6 @@ public class Blocks : MonoBehaviour
 
         return false;
     }
+
+    
 }

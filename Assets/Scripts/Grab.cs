@@ -18,25 +18,24 @@ public class Grab : MonoBehaviour
     //Needs to be set in Editor
     public Material grabMat;
 
+    public PhotonView myView;
+    public PhotonView grabView;
+
 
     // Use this for initialization
     void Start ()
     {         
         myRb = gameObject.GetComponent<Rigidbody>();
+        myView = gameObject.GetComponent<PhotonView>();
     }
 	
 	// Update is called once per frame
 	void Update ()
-    {        
+    {
+      if(myView.isMine)
+      { 
 
-        //Poker movement - PC
-        float moveY = Input.GetAxis("Up");
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(moveVertical, moveY, moveHorizontal);
-        myRb.velocity = movement * mySpeed;
-        //Poker movement - PC
+        Movement();
 
 
         //Sets the Grabbed objects Rigidbody properties
@@ -44,7 +43,7 @@ public class Grab : MonoBehaviour
         {
             myRb.constraints = RigidbodyConstraints.FreezeRotation;
             if (grabbedObject)
-            {
+            {                
                 goRb = grabbedObject.GetComponent<Rigidbody>();
                 goRb.useGravity = false;
                 goRb.constraints = RigidbodyConstraints.FreezeRotation;
@@ -72,9 +71,31 @@ public class Grab : MonoBehaviour
         {
             ReleaseJoint();
         }
+
+      }
     }
 
-    GameObject RayForward()
+    void Movement()
+    {
+        if (!myView.isMine)
+        {
+            return;
+        }
+        else
+        {
+            //Poker movement - PC
+            float moveY = Input.GetAxis("Up");
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+
+            Vector3 movement = new Vector3(moveVertical, moveY, moveHorizontal);
+            myRb.velocity = movement * mySpeed;
+            //Poker movement - PC 
+        }
+    }
+
+
+        GameObject RayForward()
     {
         //Raycast Forward
         RaycastHit[] fHits;
@@ -113,6 +134,10 @@ public class Grab : MonoBehaviour
             //Saves grabbed object Material and Sets a new one while grabbed
             OGMat = grabbedObject.GetComponent<Renderer>().material;
             grabbedObject.GetComponent<Renderer>().material = grabMat;
+
+            //Networking?
+            grabView = grabbedObject.GetComponent<PhotonView>();
+            grabView.RequestOwnership();
 
             //Adds Joint componenet
             grabJoint = gameObject.AddComponent<FixedJoint>();
