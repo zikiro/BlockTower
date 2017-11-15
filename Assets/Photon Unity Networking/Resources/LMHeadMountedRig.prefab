@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 11412806}
   - component: {fileID: 114802268102915204}
   m_Layer: 0
-  m_Name: VRplayerprefab
+  m_Name: LMHeadMountedRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

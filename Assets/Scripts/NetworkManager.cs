@@ -47,19 +47,16 @@ public class NetworkManager : Photon.PunBehaviour {
         base.OnJoinedRoom();
         if (XRDevice.isPresent == true)
         {
-            if (photonView.isMine)
-            {
+
                 GameObject Player = PhotonNetwork.Instantiate("VRplayerprefab", new Vector3(0.96f, 1.2f, -6.03f), Quaternion.identity, 0);
-            }
+            
             
         }
         else
         {
-            if (photonView.isMine)
-            {
-
+ 
                 GameObject Player = PhotonNetwork.Instantiate("playerprefab", new Vector3(0, 1.88f, -4.37f), Quaternion.identity, 0);
-            }
+            
         }
         Color Rando = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         Player.GetComponent<Renderer>().material.SetColor("_Color",Rando);
