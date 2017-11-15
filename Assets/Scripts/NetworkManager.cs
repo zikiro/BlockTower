@@ -33,7 +33,7 @@ public class NetworkManager : Photon.PunBehaviour {
 
     public override void OnCreatedRoom()
     {
-        Debug.Log("OnCreatedRoom() : You Have Created a Room : " + PhotonNetwork.room.name);
+        Debug.Log("OnCreatedRoom() : You Have Created a Room : " + PhotonNetwork.room.Name);
         for (int i = 0; i < 3; i++)
         {
             GameObject Tower = PhotonNetwork.Instantiate("JBlock", new Vector3(0+(i*2), 0+1, 0), Quaternion.identity, 0);
@@ -47,11 +47,19 @@ public class NetworkManager : Photon.PunBehaviour {
         base.OnJoinedRoom();
         if (XRDevice.isPresent == true)
         {
-            GameObject Player = PhotonNetwork.Instantiate("VRplayerprefab", new Vector3(0.96f, 1.2f, -6.03f), Quaternion.identity, 0);
+            if (photonView.isMine)
+            {
+                GameObject Player = PhotonNetwork.Instantiate("VRplayerprefab", new Vector3(0.96f, 1.2f, -6.03f), Quaternion.identity, 0);
+            }
+            
         }
         else
         {
-            GameObject Player = PhotonNetwork.Instantiate("playerprefab", new Vector3(0, 1.88f, -4.37f), Quaternion.identity, 0);
+            if (photonView.isMine)
+            {
+
+                GameObject Player = PhotonNetwork.Instantiate("playerprefab", new Vector3(0, 1.88f, -4.37f), Quaternion.identity, 0);
+            }
         }
         Color Rando = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         Player.GetComponent<Renderer>().material.SetColor("_Color",Rando);

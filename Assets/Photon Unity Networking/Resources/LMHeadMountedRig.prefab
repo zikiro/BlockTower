@@ -43,8 +43,9 @@ GameObject:
   m_Component:
   - component: {fileID: 414974}
   - component: {fileID: 11412806}
+  - component: {fileID: 114802268102915204}
   m_Layer: 0
-  m_Name: LMHeadMountedRig
+  m_Name: VRplayerprefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,7 +191,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!81 &8118890
 AudioListener:
   m_ObjectHideFlags: 1
@@ -240,17 +240,21 @@ MonoBehaviour:
   provider: {fileID: 11487516}
   _headTransform: {fileID: 411020}
   _trackingAnchor: {fileID: 414974}
-  recenter: 114
-  tweenImageWarping: 1
-  tweenRotationalWarping: 1
-  tweenPositionalWarping: 1
-  syncMode: 1
-  forceCustomUpdate: 0
-  allowManualTimeAlignment: 0
-  warpingAdjustment: 18
-  unlockHold: 0
-  moreRewind: 276
-  lessRewind: 275
+  _recenter: 114
+  _tweenImageWarping: 0
+  _tweenRotationalWarping: 0
+  _tweenPositionalWarping: 0
+  _syncMode: 1
+  _forceCustomUpdate: 0
+  _allowManualTimeAlignment: 0
+  _customWarpAdjustment: 17
+  _unlockHold: 303
+  _moreRewind: 276
+  _lessRewind: 275
+  _allowManualDeviceOffset: 0
+  _deviceOffsetYAxis: 0
+  _deviceOffsetZAxis: 0.12
+  _deviceTiltXAxis: 5
 --- !u!114 &11443994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,8 +324,6 @@ MonoBehaviour:
   _isHeadMounted: 1
   _temporalWarping: {fileID: 11442328}
   _frameOptimization: 0
-  _overrideDeviceType: 0
-  _overrideDeviceTypeWith: 1
   _updateHandInPrecull: 0
 --- !u!1001 &100100000
 Prefab:
@@ -480,3 +482,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcd03e00992e084c8be61565d44b8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114802268102915204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 483344}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 0
+  instantiationId: -1
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
