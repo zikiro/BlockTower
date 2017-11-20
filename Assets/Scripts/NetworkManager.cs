@@ -43,14 +43,13 @@ public class NetworkManager : Photon.PunBehaviour {
 
     public override void OnJoinedRoom()
     {
-        base.OnJoinedRoom();
+        
         base.OnJoinedRoom();
         if (XRDevice.isPresent == true)
         {
 
                 GameObject Player = PhotonNetwork.Instantiate("VRplayerprefab", new Vector3(0.96f, 1.2f, -6.03f), Quaternion.identity, 0);
-            
-            
+
         }
         else
         {
