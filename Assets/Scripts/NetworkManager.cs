@@ -7,7 +7,7 @@ public class NetworkManager : Photon.PunBehaviour {
 
     // Use this for initialization
     public GameObject Player;
-
+    public int layers = 12;
 	void Start ()
     {
 
@@ -34,10 +34,25 @@ public class NetworkManager : Photon.PunBehaviour {
     public override void OnCreatedRoom()
     {
         Debug.Log("OnCreatedRoom() : You Have Created a Room : " + PhotonNetwork.room.Name);
-        for (int i = 0; i < 3; i++)
+        for (int col = 0; col < layers; col++)
         {
-            GameObject Tower = PhotonNetwork.Instantiate("JBlock", new Vector3(0+(i*2), 0+1, 0), Quaternion.identity, 0);
-            GameObject Tower2 = PhotonNetwork.Instantiate("JBlock", new Vector3(0 + (i * 2), i + 1, 0), Quaternion.identity, 0);
+            if (((col / 2) * 2) == col)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (1 + col), 1), Quaternion.identity, 0);
+
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(1, (1 + col), i), Quaternion.Euler(0, 90, 0), 0);
+
+                }
+            }
+
         }
     }
 
