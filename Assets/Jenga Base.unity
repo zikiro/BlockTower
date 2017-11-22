@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  layers: 12
 --- !u!1 &1541772129
 GameObject:
   m_ObjectHideFlags: 0
