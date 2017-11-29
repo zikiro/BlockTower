@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114480431575414256}
   m_Layer: 0
   m_Name: CenterEyeAnchor
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -563,9 +563,10 @@ MonoBehaviour:
   - {fileID: 4920634877148534}
   - {fileID: 4661007453851674}
   - {fileID: 4357138512727164}
+  - {fileID: 4126591050215460}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 1
+  instantiationId: 1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114610487338148212
