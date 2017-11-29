@@ -63,7 +63,7 @@ public class NetworkManager : Photon.PunBehaviour {
         if (XRDevice.isPresent == true)
         {
 
-                GameObject Player = PhotonNetwork.Instantiate("BasicVRPlayer", new Vector3(0f, 1.0f, -5.9f), Quaternion.identity, 0);
+                GameObject Player = PhotonNetwork.Instantiate("BasicVRPlayer", new Vector3(-0.55f, 1.6f, -4.33f), Quaternion.identity, 0);
 
         }
         else
