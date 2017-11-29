@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 81114442849221256}
   - component: {fileID: 114622163381595642}
   - component: {fileID: 114480431575414256}
-  - component: {fileID: 114020626991433210}
+  - component: {fileID: 114335667872633648}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -109,14 +109,13 @@ GameObject:
   - component: {fileID: 4920634877148534}
   - component: {fileID: 114516328052884936}
   - component: {fileID: 114748141318391326}
-  - component: {fileID: 114327254845856500}
   m_Layer: 0
   m_Name: vrPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1861463817695002
 GameObject:
   m_ObjectHideFlags: 1
@@ -299,7 +298,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1387229513840428}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -429,17 +428,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1387229513840428}
   m_Enabled: 1
---- !u!114 &114020626991433210
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1387229513840428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08183d6c4d31eb14797886afce696305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114027394656716250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -499,12 +487,12 @@ MonoBehaviour:
   _material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   _sphereMesh: {fileID: 4300002, guid: 2f496b1b1bec86743b418551f859020c, type: 3}
   _cylinderResolution: 12
---- !u!114 &114327254845856500
+--- !u!114 &114335667872633648
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1789686267172114}
+  m_GameObject: {fileID: 1387229513840428}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08183d6c4d31eb14797886afce696305, type: 3}
@@ -660,7 +648,7 @@ MonoBehaviour:
     SynchronizeEnabled: 1
     TeleportEnabled: 1
     TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 2
+    InterpolateOption: 3
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 1
     InterpolateMoveTowardsAcceleration: 2

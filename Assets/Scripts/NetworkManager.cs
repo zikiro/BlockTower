@@ -60,11 +60,12 @@ public class NetworkManager : Photon.PunBehaviour {
     {
         
         base.OnJoinedRoom();
+
         if (XRDevice.isPresent == true)
         {
-
+          
                 GameObject Player = PhotonNetwork.Instantiate("vrPlayer", new Vector3(-0.55f, 1.6f, -4.33f), Quaternion.identity, 0);
-
+            
         }
         else
         {
@@ -82,6 +83,9 @@ public class NetworkManager : Photon.PunBehaviour {
     // Update is called once per frame
     void Update ()
     {
-		
+		if(PhotonNetwork.connected == true)
+        {
+            gameObject.GetComponent<Camera>().enabled = false;
+        }
 	}
 }
