@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class AndroidGrab : MonoBehaviour
 {
-    public float speed = 0.001F;
+    private float speed = 0.005f, timeHeld = 0;
 
-    private bool isGrabbed = false;
+    private bool isGrabbed = false, rotated = false, moving = false;
     private GameObject selectedObject = null;
-    private GameObject prevObject = null;
+    public GameObject prevObject;
 
     private GameObject[] blocks = null;
 
     void getAllBlocks()
     {
         blocks = GameObject.FindGameObjectsWithTag("Block");
+    }
+    private void Start()
+    {
+        getAllBlocks();
     }
     void Update()
     {
@@ -23,28 +27,57 @@ public class AndroidGrab : MonoBehaviour
             for (int i = 0; i < blocks.Length; i++)
             {
                 blocks[i].GetComponent<Renderer>().material.color = Color.white;
-                selectedObject.GetComponent<Renderer>().material.color = Color.cyan;
+                blocks[i].GetComponent<Rigidbody>().useGravity = true;
+                blocks[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             }
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
-            {
-                if (selectedObject != null)
-                {
-                    selectedObject.GetComponent<Rigidbody>().useGravity = false;
-                    prevObject.GetComponent<Rigidbody>().useGravity = true;
-                    // Get movement of the finger since last frame
-                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-
-                    // Move object across XY plane
-                    selectedObject.transform.Translate(touchDeltaPosition.x * speed, 0, touchDeltaPosition.y * speed);
-                }
-            }
-
+            selectedObject.GetComponent<Renderer>().material.color = Color.cyan;
+            selectedObject.GetComponent<Rigidbody>().useGravity = false;
+            selectedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
-        if (Input.touchCount > 0) // && Input.GetTouch(0).phase == TouchPhase.Moved
+        
+        //isGrabbed = false;
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            
+            //selectedObject.GetComponent<Rigidbody>().useGravity = false;
+            selectedObject.GetComponent<Renderer>().material.color = Color.magenta;
+            if (selectedObject == null)
+            {
+                return;
+            }
+            moving = true;
+            float multiplier = 1;
+            if (selectedObject.transform.rotation.y >= -1)
+            {
+                multiplier = -1;
+            }
+            else
+            {
+                multiplier = 1;
+            }
+            // Get movement of the finger since last frame
+            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+            if (Mathf.Abs(touchDeltaPosition.y) > Mathf.Abs(touchDeltaPosition.x))
+            {
+                selectedObject.transform.Translate(0, touchDeltaPosition.y * speed, 0);
+            }
+            else
+            {
+                selectedObject.transform.Translate(0, 0, touchDeltaPosition.x * speed * multiplier);
+            }
+
+            // Move object across XY plane    
+        }
+        else
+        {
+            moving = false;
+        }
+
+        if (Input.touchCount > 0 /*&& !isGrabbed*/)
         {
             foreach (Touch touch in Input.touches)
             {
-                if (touch.tapCount > 1)
+                if (touch.tapCount == 2)
                 {
                     getAllBlocks();
 
@@ -52,32 +85,61 @@ public class AndroidGrab : MonoBehaviour
                     RaycastHit hit;
                     if (Physics.Raycast(ray, out hit))
                     {
-                        if (hit.transform.gameObject.tag == "Block" && prevObject != hit.transform.gameObject)
+                        if (hit.transform.gameObject.tag == "Block")
                         {
                             selectedObject = hit.transform.gameObject;
-                            
+                        }
+                        else
+                        {
+                            selectedObject = null;
+                            for (int i = 0; i < blocks.Length; i++)
+                            {
+                                blocks[i].GetComponent<Renderer>().material.color = Color.white;
+                                blocks[i].GetComponent<Rigidbody>().useGravity = true;
+                                blocks[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                            }
                         }
                     }
-                    else
+                }
+                else if (touch.tapCount == 1)
+                {
+                    if (!moving)
                     {
-                        selectedObject = null;
+                        timeHeld += Input.GetTouch(0).deltaTime;
+                    }
+                    if (timeHeld >= 1.0f)
+                    {
+                        if (selectedObject != null && !rotated)
+                        {
+                            if (selectedObject.transform.rotation.y == 0)
+                            {
+                                float yRotation = 90;
+                                Vector3 selectedRotation = new Vector3(0, yRotation, 0);
+                                selectedObject.transform.rotation = Quaternion.Euler(selectedRotation);
+                            }
+                            else
+                            {
+                                float yRotation = 0;
+                                Vector3 selectedRotation = new Vector3(0, yRotation, 0);
+                                selectedObject.transform.rotation = Quaternion.Euler(selectedRotation);
+                            }
+                            rotated = true;
+                        }
+                        if (Input.GetTouch(0).phase == TouchPhase.Ended)
+                        {
+                            timeHeld = 0;
+                            rotated = false;
+                        }
                     }
                 }
-                else
-                {
-                    
-                    
-                }
             }
-            
         }
-        else
+    }
+    public void Rotate()
+    {
+        for (int i = 0; i < blocks.Length; i++)
         {
-            for (int i = 0; i < blocks.Length; i++)
-            {
-                blocks[i].GetComponent<Rigidbody>().useGravity = true;
-            }
+            blocks[i].GetComponent<Renderer>().material.color = Color.green;
         }
-
     }
 }
