@@ -13,10 +13,10 @@ public class VRPlayerCamera : Photon.PunBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //PhotonView pv = PhotonView.Get(this);
-        //if (PhotonNetwork.connected == true)
-        //{
-        //    gameObject.GetComponent<Camera>().enabled = true;
-        //}
+        PhotonView pv = PhotonView.Get(this);
+        if (pv.isMine == true && PhotonNetwork.connected == true)
+        {
+            GameObject.Find("vrPlayer/CenterEyeAnchor").GetComponent<Camera>().enabled = false;
+        }
     }
 }
