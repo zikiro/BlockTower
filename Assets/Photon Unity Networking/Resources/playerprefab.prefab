@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 114794228541759218}
   - component: {fileID: 65151544097531974}
   - component: {fileID: 114718176016660320}
+  - component: {fileID: 114387551982103372}
+  - component: {fileID: 114555349723348998}
   m_Layer: 8
   m_Name: playerprefab
   m_TagString: Untagged
@@ -54,6 +56,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -69,6 +72,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -111,6 +115,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114387551982103372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490039613347232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08183d6c4d31eb14797886afce696305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114555349723348998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490039613347232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4946ec0b930530840920617c82a3e3f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects: []
 --- !u!114 &114718176016660320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,3 +184,5 @@ MonoBehaviour:
   mySpeed: 5
   OGMat: {fileID: 0}
   grabMat: {fileID: 2100000, guid: 962b89c5e7aca3c408b54cec87502914, type: 2}
+  myView: {fileID: 0}
+  grabView: {fileID: 0}
