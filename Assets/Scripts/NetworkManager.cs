@@ -83,9 +83,9 @@ public class NetworkManager : Photon.PunBehaviour {
     // Update is called once per frame
     void Update ()
     {
-		if(PhotonNetwork.connected == true)
-        {
-            gameObject.GetComponent<Camera>().enabled = false;
-        }
+		//if(PhotonNetwork.connected == true)
+  //      {
+  //          gameObject.GetComponent<Camera>().enabled = false;
+  //      }
 	}
 }
