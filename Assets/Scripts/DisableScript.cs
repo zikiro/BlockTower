@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DisableScript : MonoBehaviour {
 
-    public GameObject[] objects;
+    public GameObject vrPlayer;
 	// Use this for initialization
 	void Start ()
     {
@@ -16,9 +16,6 @@ public class DisableScript : MonoBehaviour {
     {
         PhotonView pv = PhotonView.Get(this);
         if (PhotonNetwork.connected == true && pv.isMine == true)
-		foreach(GameObject go in objects)
-        {
-            go.SetActive(false);
-        }
+            vrPlayer.GetComponent<Camera>().enabled = false;
 	}
 }
