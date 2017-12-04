@@ -6,6 +6,8 @@ public class TouchController : MonoBehaviour {
 
     private Vector3 networkPosition;
     private Quaternion networkRotation;
+    private Vector3 realPosition;
+    private Quaternion realRotation;
     // Use this for initialization
     void Start()
     {
@@ -17,23 +19,24 @@ public class TouchController : MonoBehaviour {
     {
         TrackControllers();
 
-
+        realRotation = transform.rotation;
+        realPosition = transform.position;
     }
 
     void OnPhotonSerializeState(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.isWriting == true)
+        if (stream.isWriting)
         {
             networkRotation = this.transform.rotation;
             networkPosition = this.transform.position;
 
-            stream.SendNext(networkPosition);
-            stream.SendNext(networkRotation);
+            stream.Serialize(ref networkPosition);
+            stream.Serialize(ref networkRotation);
         }
-        else if (stream.isReading == true)
+        else if (stream.isReading)
         {
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
+            stream.Serialize(ref realRotation);
+            stream.Serialize(ref realPosition);
         }
     }
 
