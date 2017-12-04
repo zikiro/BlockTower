@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TouchController : Photon.MonoBehaviour {
 
-    private Vector3 networkPosition;
-    private Quaternion networkRotation;
+    //private Vector3 networkPosition;
+    //private Quaternion networkRotation;
     private Vector3 realPosition;
     private Quaternion realRotation;
     // Use this for initialization
@@ -17,31 +17,34 @@ public class TouchController : Photon.MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
-        transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
-
-        realRotation = transform.rotation;
-        realPosition = transform.position;
+        if (this.photonView.isMine)
+        {
+            transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
+            transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.localPosition, realPosition, Time.deltaTime * 10);
+            transform.rotation = Quaternion.Lerp(transform.localRotation, realRotation, Time.deltaTime * 10);
+        }
     }
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.isWriting == true)
+        if (stream.isWriting)
         {
-            networkRotation = this.transform.rotation;
-            networkPosition = this.transform.position;
 
-            stream.SendNext(networkPosition);
-            stream.SendNext(networkRotation);
-            Debug.Log("Writing Right");
+
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+
         }
-        else if (stream.isReading == true)
+        else if (stream.isReading)
         {
-            stream.Serialize(ref realRotation);
-            stream.Serialize(ref realPosition);
-            Debug.Log("Writing Right");
+            realPosition = (Vector3)stream.ReceiveNext();
+            realRotation = (Quaternion)stream.ReceiveNext();
         }
     }
 
- 
+
 }
