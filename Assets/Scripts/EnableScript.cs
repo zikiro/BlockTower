@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnableScript : MonoBehaviour {
 
-    public GameObject[] objects;
+    public GameObject rightHand;
+    public GameObject leftHand;
 	// Use this for initialization
 	void Start ()
     {
@@ -15,12 +16,12 @@ public class EnableScript : MonoBehaviour {
 	void Update ()
     {
         PhotonView pv = PhotonView.Get(this);
-		foreach(GameObject go in objects)
-        {
+		
             if (PhotonNetwork.connected == true && pv.isMine == true)
             {
-                go.SetActive(true);
+            rightHand.gameObject.SetActive(true);
+            leftHand.gameObject.SetActive(true);
             }
-        }
+        
 	}
 }
