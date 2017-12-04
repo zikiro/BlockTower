@@ -116,7 +116,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1259611453987496
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -142,6 +142,21 @@ GameObject:
   - component: {fileID: 23565401631825996}
   m_Layer: 0
   m_Name: stick
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1312872047947246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4193708801205094}
+  m_Layer: 0
+  m_Name: RHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,7 +215,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1542720658442674
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -352,6 +367,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1859041815572318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4536545336093594}
+  m_Layer: 0
+  m_Name: LHand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1901188283463760
 GameObject:
   m_ObjectHideFlags: 1
@@ -412,6 +442,20 @@ Transform:
   m_Father: {fileID: 4716293990793830}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4193708801205094
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1312872047947246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4322007679774220}
+  m_Father: {fileID: 4604656564657370}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4322007679774220
 Transform:
   m_ObjectHideFlags: 1
@@ -430,8 +474,8 @@ Transform:
   - {fileID: 4965376466928550}
   - {fileID: 4340739103305538}
   - {fileID: 4571513108546776}
-  m_Father: {fileID: 4604656564657370}
-  m_RootOrder: 1
+  m_Father: {fileID: 4193708801205094}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4340739103305538
 Transform:
@@ -471,6 +515,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4322007679774220}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4536545336093594
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859041815572318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4716293990793830}
+  m_Father: {fileID: 4604656564657370}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4560527216335330
 Transform:
@@ -522,8 +580,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4950840824189318}
-  - {fileID: 4322007679774220}
-  - {fileID: 4716293990793830}
+  - {fileID: 4193708801205094}
+  - {fileID: 4536545336093594}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -571,8 +629,8 @@ Transform:
   - {fileID: 4680997936806738}
   - {fileID: 4773947723572390}
   - {fileID: 4038610990472608}
-  m_Father: {fileID: 4604656564657370}
-  m_RootOrder: 2
+  m_Father: {fileID: 4536545336093594}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4773947723572390
 Transform:
@@ -1496,6 +1554,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c7a22fe541f4c49b0e51c6451f20f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RightHand: {fileID: 1312872047947246}
+  RcontrollerLocal: {fileID: 0}
+  RcontrollerGlobal: {fileID: 0}
 --- !u!114 &114524711610356000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1539,6 +1600,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa7beeaecd7a0f498129e51f5773e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LeftHand: {fileID: 1859041815572318}
+  LcontrollerLocal: {fileID: 0}
+  LcontrollerGlobal: {fileID: 0}
 --- !u!114 &114951819192932612
 MonoBehaviour:
   m_ObjectHideFlags: 1
