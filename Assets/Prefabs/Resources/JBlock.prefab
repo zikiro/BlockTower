@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114195425692747580}
   - component: {fileID: 114653765842049452}
   - component: {fileID: 114467734649250106}
+  - component: {fileID: 114641180029602560}
   m_Layer: 0
   m_Name: JBlock
   m_TagString: Block
@@ -185,6 +186,20 @@ MonoBehaviour:
   groundedHeight: 0.5
   grounded: 0
   myView: {fileID: 0}
+--- !u!114 &114641180029602560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351957400600984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d883be2a3acb1408fdb4995b99360c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  altMat: {fileID: 2100000, guid: 962b89c5e7aca3c408b54cec87502914, type: 2}
+  defMat: {fileID: 2100000, guid: 2a73ff74deb7bf84593c74557be2bcd7, type: 2}
+  hololens: {fileID: 0}
 --- !u!114 &114653765842049452
 MonoBehaviour:
   m_ObjectHideFlags: 1

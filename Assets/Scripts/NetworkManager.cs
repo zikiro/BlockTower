@@ -12,7 +12,7 @@ public class NetworkManager : Photon.PunBehaviour {
     {
 
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
-        PhotonNetwork.ConnectUsingSettings("0.1");
+        PhotonNetwork.ConnectUsingSettings("0.2");
         PhotonNetwork.automaticallySyncScene = true;
     }
 
@@ -63,13 +63,13 @@ public class NetworkManager : Photon.PunBehaviour {
         if (XRDevice.isPresent == true)
         {
 
-                GameObject Player = PhotonNetwork.Instantiate("BasicVRPlayer", new Vector3(0f, 1.0f, -5.9f), Quaternion.identity, 0);
+                //GameObject Player = PhotonNetwork.Instantiate("BasicVRPlayer", new Vector3(0f, 1.0f, -5.9f), Quaternion.identity, 0);
 
         }
         else
         {
  
-                GameObject Player = PhotonNetwork.Instantiate("playerprefab", new Vector3(0, 1.88f, -4.37f), Quaternion.identity, 0);
+              //  GameObject Player = PhotonNetwork.Instantiate("playerprefab", new Vector3(0, 1.88f, -4.37f), Quaternion.identity, 0);
             
         }
         Color Rando = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
