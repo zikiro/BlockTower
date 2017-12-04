@@ -33,6 +33,7 @@ public class TouchController : MonoBehaviour {
 
             stream.Serialize(ref networkPosition);
             stream.Serialize(ref networkRotation);
+            Debug.Log("Writing Right");
         }
         else if (stream.isReading)
         {

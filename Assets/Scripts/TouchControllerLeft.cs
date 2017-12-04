@@ -34,6 +34,7 @@ public class TouchControllerLeft : Photon.MonoBehaviour {
 
             stream.Serialize(ref networkPosition);
             stream.Serialize(ref networkRotation);
+            Debug.Log("WritingLeft");
         }
         else if (stream.isReading)
         {
