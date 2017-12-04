@@ -18,7 +18,8 @@ public class TouchControllerLeft : Photon.MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        TrackControllers();
+        transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
+        transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LTouch);
 
         realRotation = transform.rotation;
         realPosition = transform.position;
@@ -41,9 +42,5 @@ public class TouchControllerLeft : Photon.MonoBehaviour {
         }
     }
 
-    void TrackControllers()
-    {
-        transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
-        transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LTouch);
-    }
+ 
 }
