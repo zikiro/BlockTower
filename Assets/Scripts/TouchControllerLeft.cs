@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TouchControllerLeft : Photon.MonoBehaviour {
 
+    private Vector3 networkPosition;
+    private Quaternion networkRotation;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,11 +15,12 @@ public class TouchControllerLeft : Photon.MonoBehaviour {
 	void Update () {
         transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
         transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LTouch);
-
+        networkPosition = transform.localPosition;
+        networkRotation = transform.localRotation;
         
     }
 
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    void OnPhotonSerializeState(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting == true)
         {
@@ -26,8 +29,8 @@ public class TouchControllerLeft : Photon.MonoBehaviour {
         }
         else
         {
-            transform.localPosition = (Vector3)stream.ReceiveNext();
-            transform.localRotation = (Quaternion)stream.ReceiveNext();
+            networkPosition = (Vector3)stream.ReceiveNext();
+            networkRotation = (Quaternion)stream.ReceiveNext();
         }
     }
 }
