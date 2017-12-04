@@ -469,6 +469,8 @@ GameObject:
   - component: {fileID: 95304398472671724}
   - component: {fileID: 114927693966879288}
   - component: {fileID: 114181196602805114}
+  - component: {fileID: 114940968969216994}
+  - component: {fileID: 114722388607401568}
   m_Layer: 0
   m_Name: LoPoly_Rigged_Hand_Right
   m_TagString: Untagged
@@ -594,6 +596,8 @@ GameObject:
   - component: {fileID: 95688692609930026}
   - component: {fileID: 114226996243916958}
   - component: {fileID: 114320120591092070}
+  - component: {fileID: 114491996548677452}
+  - component: {fileID: 114378203665234418}
   m_Layer: 0
   m_Name: LoPoly_Rigged_Hand_Left
   m_TagString: Untagged
@@ -2052,8 +2056,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 3
+  instantiationId: 3
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114099333445431230
@@ -2403,6 +2407,48 @@ MonoBehaviour:
   deformPosition: 1
   modelFingerPointing: {x: -1, y: 0, z: 0}
   modelPalmFacing: {x: 0, y: 1, z: 0}
+--- !u!114 &114378203665234418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619556223526394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
+--- !u!114 &114491996548677452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619556223526394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 114378203665234418}
+  - {fileID: 95688692609930026}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 1
+  instantiationId: 1
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!114 &114500943696921392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2474,6 +2520,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _depthTextureMode: 0
+--- !u!114 &114722388607401568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478634737371462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!114 &114735263430072196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2777,6 +2838,33 @@ MonoBehaviour:
   - {x: 0.054747183, y: -0.0110294875, z: -0.0058002416}
   - {x: 0.027678946, y: 0.000000028804266, z: 0.0000000623105}
   - {x: 0.030591402, y: -0.000000005796997, z: -0.00000008704517}
+--- !u!114 &114940968969216994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478634737371462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 114722388607401568}
+  - {fileID: 95304398472671724}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 2
+  instantiationId: 2
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!136 &136538773368084828
 CapsuleCollider:
   m_ObjectHideFlags: 1
