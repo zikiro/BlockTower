@@ -5,6 +5,8 @@ using UnityEngine;
 public class DisableScript : MonoBehaviour {
 
     public GameObject vrPlayer;
+    [SerializeField]
+    private GameObject vrCam;
 	// Use this for initialization
 	void Start ()
     {
@@ -16,6 +18,7 @@ public class DisableScript : MonoBehaviour {
     {
         PhotonView pv = PhotonView.Get(this);
         if (PhotonNetwork.connected == true && pv.isMine == true)
-            vrPlayer.GetComponent<Camera>().enabled = false;
+            vrCam = vrPlayer.transform.Find("TrackingSpace/CenterEyeAnchor").gameObject;
+        vrCam.GetComponent<Camera>().enabled = false;
 	}
 }
