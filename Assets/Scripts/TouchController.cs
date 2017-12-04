@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TouchController : MonoBehaviour {
+public class TouchController : Photon.MonoBehaviour {
 
     private Vector3 networkPosition;
     private Quaternion networkRotation;
@@ -26,7 +26,7 @@ public class TouchController : MonoBehaviour {
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.isWriting)
+        if (stream.isWriting == true)
         {
             networkRotation = this.transform.rotation;
             networkPosition = this.transform.position;
@@ -35,7 +35,7 @@ public class TouchController : MonoBehaviour {
             stream.Serialize(ref networkRotation);
             Debug.Log("Writing Right");
         }
-        else if (stream.isReading)
+        else if (stream.isReading == true)
         {
             stream.Serialize(ref realRotation);
             stream.Serialize(ref realPosition);

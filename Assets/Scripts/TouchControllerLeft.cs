@@ -40,6 +40,7 @@ public class TouchControllerLeft : Photon.MonoBehaviour {
         {
             stream.Serialize(ref realRotation);
             stream.Serialize(ref realPosition);
+            Debug.Log("WritingLeft");
         }
     }
 
