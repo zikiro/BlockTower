@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4946ec0b930530840920617c82a3e3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vrPlayer: {fileID: 0}
+  vrPlayer: {fileID: 1788282128259074, guid: d8f6a28c3188cc8439e6c3ff86cd6dde, type: 2}
 --- !u!114 &114622411911450064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,8 +174,8 @@ MonoBehaviour:
   - {fileID: 54978395314854210}
   - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 2
-  instantiationId: 2
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114794228541759218
