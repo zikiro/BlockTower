@@ -21,8 +21,7 @@ public class TouchController : Photon.MonoBehaviour {
 
         transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
         transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
-        realRotation = transform.rotation;
-        realPosition = transform.position;
+        
 
 
         //transform.position = Vector3.Lerp(transform.localPosition, realPosition, Time.deltaTime * 10);
@@ -32,18 +31,18 @@ public class TouchController : Photon.MonoBehaviour {
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.isWriting)
+        if (stream.isWriting == true)
         {
 
 
-            stream.SendNext(realPosition);
-            stream.SendNext(realRotation);
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
 
         }
-        else if (stream.isReading)
+        else 
         {
-            realPosition = (Vector3)stream.ReceiveNext();
-            realRotation = (Quaternion)stream.ReceiveNext();
+            transform.position = (Vector3)stream.ReceiveNext();
+            transform.rotation = (Quaternion)stream.ReceiveNext();
         }
     }
 
