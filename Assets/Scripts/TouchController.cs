@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class TouchController : MonoBehaviour {
 
+    private Vector3 networkPosition;
+    private Quaternion networkRotation;
 
 
-    
     // Use this for initialization
     void Start ()
     {
