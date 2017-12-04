@@ -8,7 +8,7 @@ public class AndroidGrab : MonoBehaviour
 
     private bool isGrabbed = false, rotated = false, moving = false;
     private GameObject selectedObject = null;
-    public GameObject prevObject;
+    public Camera myCam;
 
     private GameObject[] blocks = null;
 
@@ -81,7 +81,7 @@ public class AndroidGrab : MonoBehaviour
                 {
                     getAllBlocks();
 
-                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                    Ray ray = myCam.ScreenPointToRay(touch.position);
                     RaycastHit hit;
                     if (Physics.Raycast(ray, out hit))
                     {
