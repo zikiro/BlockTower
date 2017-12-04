@@ -52,8 +52,8 @@ public class TouchControllerLeft : Photon.MonoBehaviour
         {
             this.transform.position = (Vector3)stream.ReceiveNext();
             this.transform.rotation = (Quaternion)stream.ReceiveNext();
-            LeftHand.transform.position = (Vector3)stream.ReceiveNext();
-            LeftHand.transform.rotation = (Quaternion)stream.ReceiveNext();
+            LeftHand.transform.localPosition = (Vector3)stream.ReceiveNext();
+            LeftHand.transform.localRotation = (Quaternion)stream.ReceiveNext();
         }
     }
 }
