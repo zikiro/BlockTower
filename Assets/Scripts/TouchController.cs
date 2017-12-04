@@ -39,6 +39,7 @@ public class TouchController : MonoBehaviour {
         {
             stream.Serialize(ref realRotation);
             stream.Serialize(ref realPosition);
+            Debug.Log("Writing Right");
         }
     }
 
