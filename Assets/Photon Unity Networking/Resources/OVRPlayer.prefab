@@ -1517,8 +1517,6 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 4950840824189318}
-  - {fileID: 4322007679774220}
-  - {fileID: 4716293990793830}
   - {fileID: 4358806075097540}
   - {fileID: 4953641555283886}
   - {fileID: 114207609166759948}
