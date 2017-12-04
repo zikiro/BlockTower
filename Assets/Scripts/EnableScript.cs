@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnableScript : MonoBehaviour {
 
-    public GameObject rightHand;
-    public GameObject leftHand;
+   
 	// Use this for initialization
 	void Start ()
     {
@@ -19,8 +18,8 @@ public class EnableScript : MonoBehaviour {
 		
             if (PhotonNetwork.connected == true && pv.isMine == true)
             {
-            rightHand.gameObject.SetActive(true);
-            leftHand.gameObject.SetActive(true);
+            GameObject.Find("LoPoly_Rigged_Hand_Right").SetActive(true);
+            GameObject.Find("LoPoly_Rigged_Hand_Left").SetActive(true);
             }
         
 	}
