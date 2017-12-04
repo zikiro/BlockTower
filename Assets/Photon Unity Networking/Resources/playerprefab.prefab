@@ -25,9 +25,7 @@ GameObject:
   - component: {fileID: 114794228541759218}
   - component: {fileID: 65151544097531974}
   - component: {fileID: 114718176016660320}
-  - component: {fileID: 114387551982103372}
   - component: {fileID: 114555349723348998}
-  - component: {fileID: 114622411911450064}
   m_Layer: 8
   m_Name: playerprefab
   m_TagString: Untagged
@@ -116,17 +114,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114387551982103372
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1490039613347232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08183d6c4d31eb14797886afce696305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114555349723348998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,17 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrPlayer: {fileID: 1788282128259074, guid: d8f6a28c3188cc8439e6c3ff86cd6dde, type: 2}
---- !u!114 &114622411911450064
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1490039613347232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9797e06a691bcb44fbfe774e806538dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114718176016660320
 MonoBehaviour:
   m_ObjectHideFlags: 1
