@@ -6,37 +6,40 @@ public class TouchController : MonoBehaviour {
 
     private Vector3 networkPosition;
     private Quaternion networkRotation;
-
-
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
-        transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
-        networkPosition = transform.localPosition;
-        networkRotation = transform.localRotation;
-        if (OVRInput.Get(OVRInput.Button.One))
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        TrackControllers();
+
+
+    }
+
+    void OnPhotonSerializeState(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting == true)
         {
-            Debug.Log("WORK");
+            networkRotation = this.transform.rotation;
+            networkPosition = this.transform.position;
+
+            stream.SendNext(networkPosition);
+            stream.SendNext(networkRotation);
+        }
+        else if (stream.isReading == true)
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
         }
     }
 
-    void  OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    void TrackControllers()
     {
-        if(stream.isWriting == true)
-        {
-            stream.SendNext(transform.localPosition);
-            stream.SendNext(transform.localRotation);
-        }
-        else
-        {
-            transform.localPosition = (Vector3)stream.ReceiveNext();
-            transform.localRotation = (Quaternion)stream.ReceiveNext();
-        }
+        transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
+        transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
     }
 }

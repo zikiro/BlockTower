@@ -13,10 +13,8 @@ public class TouchControllerLeft : Photon.MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
-        transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LTouch);
-        networkPosition = transform.localPosition;
-        networkRotation = transform.localRotation;
+        TrackControllers();
+        
         
     }
 
@@ -24,13 +22,22 @@ public class TouchControllerLeft : Photon.MonoBehaviour {
     {
         if (stream.isWriting == true)
         {
-            stream.SendNext(transform.localPosition);
-            stream.SendNext(transform.localRotation);
+            networkRotation = this.transform.rotation;
+            networkPosition = this.transform.position;
+                
+            stream.SendNext(networkPosition);
+            stream.SendNext(networkRotation);
         }
-        else
+        else if(stream.isReading == true)
         {
-            networkPosition = (Vector3)stream.ReceiveNext();
-            networkRotation = (Quaternion)stream.ReceiveNext();
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
         }
+    }
+
+    void TrackControllers()
+    {
+        transform.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
+        transform.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LTouch);
     }
 }
