@@ -1506,7 +1506,7 @@ Transform:
   m_GameObject: {fileID: 1915362706499450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4134550001854368}
   - {fileID: 4422193400861524}
@@ -1562,6 +1562,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1577,6 +1578,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1594,6 +1596,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1609,6 +1612,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1626,6 +1630,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1641,6 +1646,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1658,6 +1664,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1673,6 +1680,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1690,6 +1698,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1705,6 +1714,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1722,6 +1732,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1737,6 +1748,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1754,6 +1766,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1769,6 +1782,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1786,6 +1800,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1801,6 +1816,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1818,6 +1834,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1833,6 +1850,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1850,6 +1868,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1865,6 +1884,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1882,6 +1902,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1897,6 +1918,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1914,6 +1936,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1929,6 +1952,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1946,6 +1970,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1961,6 +1986,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1978,6 +2004,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1993,6 +2020,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2010,6 +2038,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2025,6 +2054,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2042,6 +2072,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2057,6 +2088,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2074,6 +2106,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2089,6 +2122,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2106,6 +2140,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2121,6 +2156,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2138,6 +2174,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2153,6 +2190,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2170,6 +2208,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2185,6 +2224,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2202,6 +2242,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2217,6 +2258,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2234,6 +2276,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2249,6 +2292,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2266,6 +2310,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2281,6 +2326,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2298,6 +2344,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2313,6 +2360,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2330,6 +2378,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2345,6 +2394,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2362,6 +2412,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2377,6 +2428,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2394,6 +2446,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2409,6 +2462,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2426,6 +2480,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2441,6 +2496,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2458,6 +2514,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2473,6 +2530,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2490,6 +2548,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2505,6 +2564,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2522,6 +2582,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2537,6 +2598,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2554,6 +2616,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2569,6 +2632,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2586,6 +2650,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2601,6 +2666,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2618,6 +2684,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2633,6 +2700,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2650,6 +2718,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2665,6 +2734,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2682,6 +2752,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2697,6 +2768,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2714,6 +2786,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2729,6 +2802,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2746,6 +2820,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2761,6 +2836,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2778,6 +2854,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2793,6 +2870,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2810,6 +2888,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2825,6 +2904,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2842,6 +2922,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2857,6 +2938,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2874,6 +2956,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2889,6 +2972,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -4341,6 +4425,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114040319049058038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4370,6 +4455,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114056008187781580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4386,6 +4472,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114059349714916546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4429,6 +4516,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114066544358838780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4445,6 +4533,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114087582264447302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4501,6 +4590,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114094563696846414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4611,6 +4701,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114128235963597356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4627,6 +4718,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114146141945539114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4643,6 +4735,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114151653480673294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4725,6 +4818,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114185027874399306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4781,6 +4875,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114214689818832166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4863,6 +4958,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114242017309600486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4879,6 +4975,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114247746237503756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4895,6 +4992,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114261220730732846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4911,6 +5009,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114266050548844358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4927,6 +5026,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114273515351068276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4943,6 +5043,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114280010626840566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4986,6 +5087,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114301758882861924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5186,6 +5288,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114370135579304948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5202,6 +5305,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114376704631033898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5271,6 +5375,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114401218653901574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5407,6 +5512,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114430434047138016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5449,6 +5555,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114440236215863658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5572,6 +5679,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114484462423697142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5615,6 +5723,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114496883660960836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5658,6 +5767,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114509139171783530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5687,6 +5797,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114515802910189142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5797,6 +5908,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114565269397202116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5894,6 +6006,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114605728958720276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5975,6 +6088,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114669891942382442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6004,6 +6118,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114702811901860602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6099,6 +6214,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114730537363435176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6236,6 +6352,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114789682649265406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6306,6 +6423,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114830595283904582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6361,6 +6479,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114873396264005864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6417,6 +6536,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114883246062271994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6541,6 +6661,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114924522544081304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6611,6 +6732,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114939696575724426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6627,6 +6749,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114939824796180654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6723,6 +6846,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114968774445166302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6752,6 +6876,7 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}
 --- !u!114 &114988099297609360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6768,3 +6893,4 @@ MonoBehaviour:
   StartRotation: {x: 0, y: 0, z: 0, w: 0}
   groundedHeight: 0.5
   grounded: 0
+  myView: {fileID: 0}

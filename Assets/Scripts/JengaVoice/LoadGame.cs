@@ -17,7 +17,8 @@ public class LoadGame : MonoBehaviour {
 
     public void load()
     {
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        Destroy(this);
         SceneManager.LoadScene("Jenga Base");
     }
 }
