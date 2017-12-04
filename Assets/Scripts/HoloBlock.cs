@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 
-
-
-public class HoloBlock : MonoBehaviour, IInputHandler, IInputClickHandler
+public class HoloBlock : MonoBehaviour, IInputHandler, IInputClickHandler, ISpeechHandler
 {
+    private Material cachedMaterial;
+
     public Material altMat;
     public Material defMat;
 
@@ -25,6 +25,8 @@ public class HoloBlock : MonoBehaviour, IInputHandler, IInputClickHandler
         myRend = GetComponent<Renderer>();
         myRigd = GetComponent<Rigidbody>();
         joint = GetComponent<FixedJoint>();
+        hololens = (hololens != null ? hololens : GameObject.FindGameObjectWithTag("Hololens"));
+        cachedMaterial = GetComponent<Renderer>().material;
     }
 
     // Update is called once per frame
@@ -33,30 +35,26 @@ public class HoloBlock : MonoBehaviour, IInputHandler, IInputClickHandler
 
     }
 
-    void tappedOn()
-    {
-        if (!selected)
-        {
-            selected = true;
-            myRend.material = altMat;
-            hololens.GetComponent<MyHolo>().joinObject(gameObject);
-            //joint.connectedBody = hololens.GetComponent<Rigidbody>();
-        }
-        else
-        {
-            selected = false;
-            myRend.material = defMat;
-            hololens.GetComponent<MyHolo>().removeObject(gameObject);
-            myRigd.AddForce(-Vector3.up);
-            //myRigd.useGravity = false;
-            //myRigd.useGravity = true;
-            //joint.connectedBody = null;
-        }
-    }
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        print("INPUT CLICKED!!");
+        OnSelect();
+        //if (!selected)
+        //{
+        //    selected = true;
+        //    myRend.material = altMat;
+        //    hololens.GetComponent<MyHolo>().joinObject(gameObject);
+        //}
+        //else
+        //{
+        //    selected = false;
+        //    myRend.material = defMat;
+        //    hololens.GetComponent<MyHolo>().removeObject(gameObject);
+        //}
+    }
+
+    public void OnSelect()
+    {
         if (!selected)
         {
             selected = true;
@@ -69,7 +67,29 @@ public class HoloBlock : MonoBehaviour, IInputHandler, IInputClickHandler
             myRend.material = defMat;
             hololens.GetComponent<MyHolo>().removeObject(gameObject);
         }
-        
+    }
+
+    public void OnSpeechKeywordRecognized(SpeechEventData eventData)
+    {
+        switch(eventData.RecognizedText.ToLower())
+        {
+            case "vertical":
+                myRend.material.SetColor("_Color", Color.red);
+                //Move the block vertically
+                break;
+            case "horizontal":
+                myRend.material.SetColor("_Color", Color.blue);
+                //Move the block on the x and z
+                break;
+            case "grab":
+                OnSelect();
+                break;
+            case "select":
+                OnSelect();
+                break;
+
+
+        }
     }
 
 
