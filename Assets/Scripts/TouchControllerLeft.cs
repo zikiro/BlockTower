@@ -16,4 +16,18 @@ public class TouchControllerLeft : Photon.MonoBehaviour {
 
         
     }
+
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting == true)
+        {
+            stream.SendNext(transform.localPosition);
+            stream.SendNext(transform.localRotation);
+        }
+        else
+        {
+            transform.localPosition = (Vector3)stream.ReceiveNext();
+            transform.localRotation = (Quaternion)stream.ReceiveNext();
+        }
+    }
 }

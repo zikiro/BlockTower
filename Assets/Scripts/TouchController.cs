@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TouchController : Photon.MonoBehaviour {
+public class TouchController : MonoBehaviour {
 
 
 
@@ -21,6 +21,20 @@ public class TouchController : Photon.MonoBehaviour {
         if (OVRInput.Get(OVRInput.Button.One))
         {
             Debug.Log("WORK");
+        }
+    }
+
+    void  OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.isWriting == true)
+        {
+            stream.SendNext(transform.localPosition);
+            stream.SendNext(transform.localRotation);
+        }
+        else
+        {
+            transform.localPosition = (Vector3)stream.ReceiveNext();
+            transform.localRotation = (Quaternion)stream.ReceiveNext();
         }
     }
 }
