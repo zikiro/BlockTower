@@ -24,7 +24,7 @@ public class TouchController : MonoBehaviour {
         realPosition = transform.position;
     }
 
-    void OnPhotonSerializeState(PhotonStream stream, PhotonMessageInfo info)
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
         {
