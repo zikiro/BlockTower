@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TouchControllerLeft : MonoBehaviour {
+public class TouchControllerLeft : Photon.MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

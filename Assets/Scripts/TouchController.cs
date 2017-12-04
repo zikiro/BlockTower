@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TouchController : MonoBehaviour {
+public class TouchController : Photon.MonoBehaviour {
 
 
 
