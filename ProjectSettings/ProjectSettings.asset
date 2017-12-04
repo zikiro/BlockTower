@@ -534,7 +534,11 @@ PlayerSettings:
   metroCertificatePassword: 
   metroCertificateSubject: DefaultCompany
   metroCertificateIssuer: DefaultCompany
+<<<<<<< HEAD
+  metroCertificateNotAfter: 00c46fb95e88d401
+=======
   metroCertificateNotAfter: 00f4c843b686d401
+>>>>>>> 6b4036db859e0b6bb308cf763b4a43b7d6461114
   metroApplicationDescription: Jenga
   wsaImages: {}
   metroTileShortName: JengaHololens
