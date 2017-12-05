@@ -20,5 +20,10 @@ public class vrPlayerMovement : MonoBehaviour {
         {
             transform.Translate(Vector3.down * Time.deltaTime * speed);
         }
+        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+        {
+            Debug.Log("Movee");
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        }
 	}
 }

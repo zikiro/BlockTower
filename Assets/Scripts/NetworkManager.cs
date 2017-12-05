@@ -12,7 +12,7 @@ public class NetworkManager : Photon.PunBehaviour {
     {
 
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
-        PhotonNetwork.ConnectUsingSettings("0.1");
+        PhotonNetwork.ConnectUsingSettings("0.255");
         PhotonNetwork.automaticallySyncScene = true;
     }
 
@@ -33,28 +33,30 @@ public class NetworkManager : Photon.PunBehaviour {
 
     public override void OnCreatedRoom()
     {
+
         Debug.Log("OnCreatedRoom() : You Have Created a Room : " + PhotonNetwork.room.Name);
         for (int col = 0; col < layers; col++)
         {
             if (((col / 2) * 2) == col)
             {
-                for (int i = 0; i < 3; i++)
+                for (float i = 0; i < 0.15; i = i + 0.05f)
                 {
-                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (1 + col), 1), Quaternion.identity, 0);
+                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (0.05f + (col / 20f)), 0.05f), Quaternion.identity, 0);
 
                 }
             }
             else
             {
-                for (int i = 0; i < 3; i++)
+                for (float i = 0; i < 0.15; i = i + 0.05f)
                 {
-                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(1, (1 + col), i), Quaternion.Euler(0, 90, 0), 0);
+                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(0.05f, (0.05f + (col / 20f)), i), Quaternion.Euler(0, 90, 0), 0);
 
                 }
             }
 
         }
     }
+
 
     public override void OnJoinedRoom()
     {
@@ -64,7 +66,7 @@ public class NetworkManager : Photon.PunBehaviour {
         if (XRDevice.isPresent == true)
         {
           
-                GameObject Player = PhotonNetwork.Instantiate("OVRPlayer", new Vector3(0f, 1.32f, -2.46f), Quaternion.identity, 0);
+                GameObject Player = PhotonNetwork.Instantiate("OVRPlayer", new Vector3(-0.09380519f, 0.177f, -0.384f), Quaternion.identity, 0);
             
         }
         else

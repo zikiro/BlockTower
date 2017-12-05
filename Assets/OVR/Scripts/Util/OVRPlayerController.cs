@@ -200,13 +200,13 @@ public class OVRPlayerController : MonoBehaviour
 
 		moveDirection += MoveThrottle * SimulationRate * Time.deltaTime;
 
-		// Gravity
-		if (Controller.isGrounded && FallSpeed <= 0)
-			FallSpeed = ((Physics.gravity.y * (GravityModifier * 0.002f)));
-		else
-			FallSpeed += ((Physics.gravity.y * (GravityModifier * 0.002f)) * SimulationRate * Time.deltaTime);
+		//// Gravity
+		//if (Controller.isGrounded && FallSpeed <= 0)
+		//	FallSpeed = ((Physics.gravity.y * (GravityModifier * 0.002f)));
+		//else
+		//	FallSpeed += ((Physics.gravity.y * (GravityModifier * 0.002f)) * SimulationRate * Time.deltaTime);
 
-		moveDirection.y += FallSpeed * SimulationRate * Time.deltaTime;
+		//moveDirection.y += FallSpeed * SimulationRate * Time.deltaTime;
 
 		// Offset correction for uneven ground
 		float bumpUpOffset = 0.0f;
@@ -244,7 +244,7 @@ public class OVRPlayerController : MonoBehaviour
 		{
 			moveForward = true;
 			dpad_move   = true;
-
+            Debug.Log("Move");
 		}
 
 		if (OVRInput.Get(OVRInput.Button.DpadDown))
@@ -277,9 +277,9 @@ public class OVRPlayerController : MonoBehaviour
 		ortEuler.z = ortEuler.x = 0f;
 		ort = Quaternion.Euler(ortEuler);
 
-		if (moveForward)
-			MoveThrottle += ort * (transform.lossyScale.z * moveInfluence * Vector3.forward);
-		if (moveBack)
+        if (moveForward)
+            MoveThrottle += ort * (transform.lossyScale.z * moveInfluence * Vector3.forward);
+        if (moveBack)
 			MoveThrottle += ort * (transform.lossyScale.z * moveInfluence * BackAndSideDampen * Vector3.back);
 		if (moveLeft)
 			MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.left);
