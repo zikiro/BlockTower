@@ -12,7 +12,7 @@ public class NetworkManager : Photon.PunBehaviour {
     {
 
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
-        PhotonNetwork.ConnectUsingSettings("0.2");
+        PhotonNetwork.ConnectUsingSettings("0.25");
         PhotonNetwork.automaticallySyncScene = true;
     }
 
