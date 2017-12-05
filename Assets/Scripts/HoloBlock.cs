@@ -88,6 +88,9 @@ public class HoloBlock : MonoBehaviour, IInputHandler, IInputClickHandler, ISpee
             case "select":
                 OnSelect();
                 break;
+            case "drop":
+                OnSelect();
+                break;
 
 
         }
