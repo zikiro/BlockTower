@@ -80,7 +80,7 @@ Transform:
   m_GameObject: {fileID: 1490039613347232}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -5, y: 3, z: 0}
-  m_LocalScale: {x: 0.008, y: 0.008, z: 0.008}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children:
   - {fileID: 4438253641030432}
   m_Father: {fileID: 0}
@@ -348,7 +348,7 @@ MonoBehaviour:
   grabbing: 0
   grabbedCol: {fileID: 0}
   grabJoint: {fileID: 0}
-  mySpeed: 0.1
+  mySpeed: 0.25
   OGMat: {fileID: 0}
   grabMat: {fileID: 2100000, guid: 962b89c5e7aca3c408b54cec87502914, type: 2}
   myView: {fileID: 0}

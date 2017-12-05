@@ -6,7 +6,7 @@ using UnityEngine.XR;
 public class NetworkManager : Photon.PunBehaviour {
 
     // Use this for initialization
-
+    public string ver;
     public bool PC = true;
     public bool Oculus = false;
     public bool LeapMotion = false;
@@ -19,7 +19,7 @@ public class NetworkManager : Photon.PunBehaviour {
     {
         PhotonNetwork.autoCleanUpPlayerObjects = false;
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
-        PhotonNetwork.ConnectUsingSettings("Lime");
+        PhotonNetwork.ConnectUsingSettings(ver);
         PhotonNetwork.automaticallySyncScene = true;
     }
 
@@ -46,17 +46,17 @@ public class NetworkManager : Photon.PunBehaviour {
         {
             if (((col / 2) * 2) == col)
             {
-                for (float i = 0; i < 0.04; i = i + 0.02f)
+                for (float i = 0; i < 0.15f; i = i + 0.05f)
                 {
-                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (0.02f + (col / 50f)), 0.02f), Quaternion.identity, 0);
+                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (0.05f + (col / 20f)), 0.05f), Quaternion.identity, 0);
 
                 }
             }
             else
             {
-                for (float i = 0; i < 0.04; i = i + 0.02f)
+                for (float i = 0; i < 0.15f; i = i + 0.05f)
                 {
-                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(0.02f, (0.02f + (col / 50f)), i), Quaternion.Euler(0, 90, 0), 0);
+                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(0.05f, (0.05f + (col / 20f)), i), Quaternion.Euler(0, 90, 0), 0);
 
                 }
             }
