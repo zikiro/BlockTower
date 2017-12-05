@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114195425692747580}
   - component: {fileID: 114653765842049452}
   - component: {fileID: 114467734649250106}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: JBlock
   m_TagString: Block
   m_Icon: {fileID: 0}
