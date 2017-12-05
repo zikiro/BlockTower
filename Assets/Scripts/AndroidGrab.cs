@@ -41,7 +41,7 @@ public class AndroidGrab : MonoBehaviour
         {
             
             //selectedObject.GetComponent<Rigidbody>().useGravity = false;
-            selectedObject.GetComponent<Renderer>().material.color = Color.magenta;
+            //selectedObject.GetComponent<Renderer>().material.color = Color.magenta;
             if (selectedObject == null)
             {
                 return;
