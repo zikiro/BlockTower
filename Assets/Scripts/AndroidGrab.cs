@@ -51,11 +51,11 @@ public class AndroidGrab : MonoBehaviour
             float multiplier = 1;
             if (selectedObject.transform.rotation.y >= -1)
             {
-                multiplier = -1;
+                multiplier = 1;
             }
             else
             {
-                multiplier = 1;
+                multiplier = -1;
             }
             // Get movement of the finger since last frame
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
@@ -65,7 +65,7 @@ public class AndroidGrab : MonoBehaviour
             }
             else
             {
-                selectedObject.transform.Translate(0, 0, touchDeltaPosition.x * speed * multiplier);
+                selectedObject.transform.Translate(0, 0, touchDeltaPosition.x * speed);
             }
 
             // Move object across XY plane    
@@ -96,7 +96,7 @@ public class AndroidGrab : MonoBehaviour
                             selectedObject = null;
                             for (int i = 0; i < blocks.Length; i++)
                             {
-                                blocks[i].GetComponent<Renderer>().material.color = Color.white;
+                                blocks[i].GetComponent<Renderer>().material = origin;
                                 blocks[i].GetComponent<Rigidbody>().useGravity = true;
                                 blocks[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                             }
