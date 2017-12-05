@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grab : Photon.PunBehaviour
+public class XboxGrab : Photon.PunBehaviour
 {
 
     public GameObject grabbedObject;
@@ -14,7 +14,7 @@ public class Grab : Photon.PunBehaviour
     Rigidbody goRb;
     public float mySpeed = 5f;
     public Material OGMat;
-    
+
     //Needs to be set in Editor
     public Material grabMat;
 
@@ -23,61 +23,67 @@ public class Grab : Photon.PunBehaviour
 
 
     // Use this for initialization
-    void Start ()
-    {         
+    void Start()
+    {
         myRb = gameObject.GetComponent<Rigidbody>();
         myView = gameObject.GetComponent<PhotonView>();
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-      if(myView.isMine)
-      {
-        if(!gameObject.GetComponentInChildren<Camera>().enabled)
+        if (myView.isMine)
+        {
+
+            if (!gameObject.GetComponentInChildren<Camera>().enabled)
             { gameObject.GetComponentInChildren<Camera>().enabled = true; }
-        
-        Movement();
+
+            Movement();
 
 
-        //Sets the Grabbed objects Rigidbody properties
-        if (grabbing == true)
-        {
-            myRb.constraints = RigidbodyConstraints.FreezeRotation;
-            if (grabbedObject)
+            //Sets the Grabbed objects Rigidbody properties
+            if (grabbing == true)
             {
-                    if (goRb = grabbedObject.GetComponent<Rigidbody>())
-                    {
-                        goRb.useGravity = false;
-                        goRb.constraints = RigidbodyConstraints.FreezeRotation;
-                    }
+                myRb.constraints = RigidbodyConstraints.FreezeRotation;
+                if (grabbedObject)
+                {
+                    goRb = grabbedObject.GetComponent<Rigidbody>();
+                    goRb.useGravity = false;
+                    goRb.constraints = RigidbodyConstraints.FreezeRotation;
+                }
             }
-                else { grabbing = false; }
-        }
 
-        //Simple rotation
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            if(grabbedObject)
+            //Simple rotation
+            if (Input.GetKeyDown(KeyCode.JoystickButton4))
             {
-                grabbedObject.transform.Rotate(0, 90, 0);
+                if (grabbedObject)
+                {
+                    grabbedObject.transform.Rotate(0, 90, 0);
+                }
             }
-        }
 
-        //Grab
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //CreateJoint(RayForward());
-            CreateJoint(RayCardinal());
-        }
+            if (Input.GetKeyDown(KeyCode.JoystickButton5))
+            {
+                if (grabbedObject)
+                {
+                    grabbedObject.transform.Rotate(0, -90, 0);
+                }
+            }
 
-        //Release
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            ReleaseJoint();
-        }
+            //Grab
+            if (Input.GetKeyDown(KeyCode.JoystickButton0))
+            {
+                //CreateJoint(RayForward());
+                CreateJoint(RayCardinal());
+            }
 
-      }
+            //Release
+            if (Input.GetKeyUp(KeyCode.JoystickButton0))
+            {
+                ReleaseJoint();
+            }
+
+        }
     }
 
     void Movement()
@@ -88,19 +94,19 @@ public class Grab : Photon.PunBehaviour
         }
         else
         {
-            //Poker movement - PC
-            float moveY = Input.GetAxis("Up");
+            //Poker movement
+            float moveY = Input.GetAxis("XboneUpDown");
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
 
-            Vector3 movement = new Vector3(moveVertical, moveY, moveHorizontal);
+            Vector3 movement = new Vector3(moveVertical, moveY, -moveHorizontal);
             myRb.velocity = movement * mySpeed;
-            //Poker movement - PC 
+            //Poker movement
         }
     }
 
 
-        GameObject RayForward()
+    GameObject RayForward()
     {
         //Raycast Forward
         RaycastHit[] fHits;
@@ -119,7 +125,7 @@ public class Grab : Photon.PunBehaviour
                     if (fHits[i].distance < fHits[closestHit].distance)
                         closestHit = i;
                 }
-                
+
                 //returns GameObject hit
                 return fHits[closestHit].collider.gameObject;
             }
@@ -134,16 +140,16 @@ public class Grab : Photon.PunBehaviour
     {
         grabbedObject = jointObj;
 
-        if (jointObj.GetComponent<Rigidbody>() != null)
+        if (grabbedObject != null)
         {
             //Saves grabbed object Material and Sets a new one while grabbed
             OGMat = grabbedObject.GetComponent<Renderer>().material;
             grabbedObject.GetComponent<Renderer>().material = grabMat;
 
             //Networking?
-            grabView = grabbedObject.GetComponent<PhotonView>();            
+            grabView = grabbedObject.GetComponent<PhotonView>();
             grabView.RequestOwnership();
-            
+
 
             //Adds Joint componenet
             grabJoint = gameObject.AddComponent<FixedJoint>();
@@ -154,7 +160,7 @@ public class Grab : Photon.PunBehaviour
     //Releases all joints and deletes them
     void ReleaseJoint()
     {
-        if (grabbedObject.GetComponent<Rigidbody>() != null)
+        if (grabbedObject)
         {
             grabbing = false;
 
@@ -228,7 +234,8 @@ public class Grab : Photon.PunBehaviour
 
         //Forward Raycast check
         if (fHits != null)
-        {            
+        {
+            grabbing = true;
 
             if (fHits.Length > 0)
             {
@@ -236,74 +243,75 @@ public class Grab : Photon.PunBehaviour
 
                 for (int i = 0; i > fHits.Length; i++)
                 {
-                    if (fHits[i].distance < fHits[closestHit].distance && fHits[closestHit].collider.gameObject.GetComponent<Rigidbody>())
+                    if (fHits[i].distance < fHits[closestHit].distance)
                         closestHit = i;
                 }
 
-                grabbing = true;
-                return fHits[closestHit].collider.gameObject;                
+                return fHits[closestHit].collider.gameObject;
             }
         }
 
         //Backwards Raycast check
         if (bHits != null)
         {
-            
+            grabbing = true;
+
             if (bHits.Length > 0)
             {
                 int closestHit = 0;
 
                 for (int i = 0; i > bHits.Length; i++)
                 {
-                    if (bHits[i].distance < bHits[closestHit].distance && fHits[closestHit].collider.gameObject.GetComponent<Rigidbody>())
+                    if (bHits[i].distance < bHits[closestHit].distance)
                         closestHit = i;
                 }
-                grabbing = true;
-                return bHits[closestHit].collider.gameObject;                
+
+                return bHits[closestHit].collider.gameObject;
             }
         }
 
         //Right Raycast check
         if (rHits != null)
-        {           
-           
+        {
+            grabbing = true;
+
             if (rHits.Length > 0)
             {
                 int closestHit = 0;
 
                 for (int i = 0; i > rHits.Length; i++)
                 {
-                    if (rHits[i].distance < rHits[closestHit].distance && fHits[closestHit].collider.gameObject.GetComponent<Rigidbody>())
+                    if (rHits[i].distance < rHits[closestHit].distance)
                         closestHit = i;
                 }
-                grabbing = true;
-                return rHits[closestHit].collider.gameObject;                
+
+                return rHits[closestHit].collider.gameObject;
             }
         }
 
         //Left Raycast check
         if (lHits != null)
         {
-           
+            grabbing = true;
+
             if (lHits.Length > 0)
             {
                 int closestHit = 0;
 
                 for (int i = 0; i > lHits.Length; i++)
                 {
-                    if (lHits[i].distance < lHits[closestHit].distance && fHits[closestHit].collider.gameObject.GetComponent<Rigidbody>())
+                    if (lHits[i].distance < lHits[closestHit].distance)
                         closestHit = i;
                 }
-                grabbing = true;
+
                 return lHits[closestHit].collider.gameObject;
             }
         }
 
         //Returns null if no GameObjects are found
-        grabbing = false;
         return null;
     }
 
-    
+
 
 }

@@ -15,18 +15,22 @@ public class CameraRotate : MonoBehaviour
     void Start()
     {
         offset = target.transform.position - transform.position;
+        target = GameObject.FindGameObjectWithTag("GameManager");
     }
 
     //Simple mouse based Camera controls
     void LateUpdate()
     {
-        float horizontal = Input.GetAxis("Mouse X") * rotateSpeed;
-        target.transform.Rotate(0, horizontal, 0);
+        if (target)
+        {
+            float horizontal = Input.GetAxis("Mouse X") * rotateSpeed;
+            target.transform.Rotate(0, horizontal, 0);
 
-        float desiredAngle = target.transform.eulerAngles.y;
-        Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
-        transform.position = target.transform.position - (rotation * offset);
+            float desiredAngle = target.transform.eulerAngles.y;
+            Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
+            transform.position = target.transform.position - (rotation * offset);
 
-        transform.LookAt(target.transform);
+            transform.LookAt(target.transform);
+        }
     }
 }
