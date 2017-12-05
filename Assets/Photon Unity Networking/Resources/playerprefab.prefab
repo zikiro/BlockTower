@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114794228541759218}
   - component: {fileID: 65151544097531974}
   - component: {fileID: 114718176016660320}
+  - component: {fileID: 114011494653613102}
   m_Layer: 8
   m_Name: playerprefab
   m_TagString: Untagged
@@ -40,7 +41,7 @@ Transform:
   m_GameObject: {fileID: 1490039613347232}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -5, y: 3, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,6 +55,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -69,6 +71,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -106,11 +109,24 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1490039613347232}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114011494653613102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1490039613347232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
 --- !u!114 &114718176016660320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,8 +142,8 @@ MonoBehaviour:
   group: 0
   OwnerShipWasTransfered: 0
   prefixBackup: -1
-  synchronization: 2
-  onSerializeTransformOption: 3
+  synchronization: 1
+  onSerializeTransformOption: 4
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
@@ -154,6 +170,8 @@ MonoBehaviour:
   grabbing: 0
   grabbedCol: {fileID: 0}
   grabJoint: {fileID: 0}
-  mySpeed: 5
+  mySpeed: 0.25
   OGMat: {fileID: 0}
   grabMat: {fileID: 2100000, guid: 962b89c5e7aca3c408b54cec87502914, type: 2}
+  myView: {fileID: 0}
+  grabView: {fileID: 0}

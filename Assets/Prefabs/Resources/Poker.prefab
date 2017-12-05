@@ -21,10 +21,9 @@ GameObject:
   - component: {fileID: 4411390918356890}
   - component: {fileID: 33249240992246128}
   - component: {fileID: 23730113879493680}
-  - component: {fileID: 54745243181550670}
   - component: {fileID: 114819569207066874}
-  - component: {fileID: 65948998350586300}
   - component: {fileID: 114268056418005338}
+  - component: {fileID: 54033709515214730}
   m_Layer: 8
   m_Name: Poker
   m_TagString: Untagged
@@ -40,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1191701728525614}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -5, y: 3, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,6 +53,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -69,6 +69,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -84,7 +85,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1191701728525614}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54745243181550670
+--- !u!54 &54033709515214730
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -96,21 +97,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 112
-  m_CollisionDetection: 2
---- !u!65 &65948998350586300
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1191701728525614}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114268056418005338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,7 +121,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 4411390918356890}
-  - {fileID: 54745243181550670}
+  - {fileID: 0}
   - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
@@ -157,3 +146,5 @@ MonoBehaviour:
   mySpeed: 5
   OGMat: {fileID: 0}
   grabMat: {fileID: 2100000, guid: 962b89c5e7aca3c408b54cec87502914, type: 2}
+  myView: {fileID: 0}
+  grabView: {fileID: 0}

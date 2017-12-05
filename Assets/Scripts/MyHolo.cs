@@ -5,6 +5,7 @@ using UnityEngine;
 public class MyHolo : MonoBehaviour {
 
     Joint myJoint;
+    PhotonView grabbed;
    
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,8 @@ public class MyHolo : MonoBehaviour {
         print("Join  Called");
         myJoint = gameObject.AddComponent<FixedJoint>();
         myJoint.connectedBody = tarObj.GetComponent<Rigidbody>();
+        grabbed = tarObj.GetComponent<PhotonView>();
+        grabbed.RequestOwnership();
     }
 
     public void removeObject(GameObject tarObj)
