@@ -9,6 +9,7 @@ public class AndroidGrab : MonoBehaviour
     private bool isGrabbed = false, rotated = false, moving = false;
     private GameObject selectedObject = null;
     public GameObject prevObject;
+    public Material origin, selected;
 
     private GameObject[] blocks = null;
 
@@ -26,11 +27,11 @@ public class AndroidGrab : MonoBehaviour
         {
             for (int i = 0; i < blocks.Length; i++)
             {
-                blocks[i].GetComponent<Renderer>().material.color = Color.white;
+                blocks[i].GetComponent<Renderer>().material = origin;
                 blocks[i].GetComponent<Rigidbody>().useGravity = true;
                 blocks[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             }
-            selectedObject.GetComponent<Renderer>().material.color = Color.cyan;
+            selectedObject.GetComponent<Renderer>().material = selected;
             selectedObject.GetComponent<Rigidbody>().useGravity = false;
             selectedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
