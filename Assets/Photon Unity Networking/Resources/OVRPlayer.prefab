@@ -123,6 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4322007679774220}
   - component: {fileID: 114207609166759948}
+  - component: {fileID: 114905351821965844}
   m_Layer: 0
   m_Name: Touch_controller_R_luxury
   m_TagString: Untagged
@@ -222,6 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4716293990793830}
   - component: {fileID: 114545232078113906}
+  - component: {fileID: 114710871901216666}
   m_Layer: 0
   m_Name: Touch_controller_L_luxury
   m_TagString: Untagged
@@ -1585,8 +1587,8 @@ MonoBehaviour:
   - {fileID: 114545232078113906}
   - {fileID: 4604656564657370}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 1
+  instantiationId: 1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114545232078113906
@@ -1603,6 +1605,40 @@ MonoBehaviour:
   LeftHand: {fileID: 1859041815572318}
   LcontrollerLocal: {fileID: 0}
   LcontrollerGlobal: {fileID: 0}
+--- !u!114 &114710871901216666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542720658442674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fee84dd6a81d24ea32e95e61572408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabRadius: 0.1
+  grabMask:
+    serializedVersion: 2
+    m_Bits: 512
+  controller: 1
+  ButtonName: Fire2
+--- !u!114 &114905351821965844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259611453987496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fee84dd6a81d24ea32e95e61572408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabRadius: 0.1
+  grabMask:
+    serializedVersion: 2
+    m_Bits: 512
+  controller: 2
+  ButtonName: RHandTrigger
 --- !u!114 &114951819192932612
 MonoBehaviour:
   m_ObjectHideFlags: 1
