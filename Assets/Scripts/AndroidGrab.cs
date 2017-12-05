@@ -50,11 +50,11 @@ public class AndroidGrab : MonoBehaviour
             float multiplier = 1;
             if (selectedObject.transform.rotation.y >= -1)
             {
-                multiplier = -1;
+                multiplier = 1;
             }
             else
             {
-                multiplier = 1;
+                multiplier = -1;
             }
             // Get movement of the finger since last frame
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
