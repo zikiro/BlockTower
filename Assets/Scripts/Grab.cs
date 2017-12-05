@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grab : Photon.PunBehaviour
+public class Grab : MonoBehaviour
 {
 
     public GameObject grabbedObject;
@@ -33,10 +33,8 @@ public class Grab : Photon.PunBehaviour
 	void Update ()
     {
       if(myView.isMine)
-      {
-        if(!gameObject.GetComponentInChildren<Camera>().enabled)
-            { gameObject.GetComponentInChildren<Camera>().enabled = true; }
-        
+      { 
+
         Movement();
 
 
@@ -45,14 +43,11 @@ public class Grab : Photon.PunBehaviour
         {
             myRb.constraints = RigidbodyConstraints.FreezeRotation;
             if (grabbedObject)
-            {
-                    if (goRb = grabbedObject.GetComponent<Rigidbody>())
-                    {
-                        goRb.useGravity = false;
-                        goRb.constraints = RigidbodyConstraints.FreezeRotation;
-                    }
+            {                
+                goRb = grabbedObject.GetComponent<Rigidbody>();
+                goRb.useGravity = false;
+                goRb.constraints = RigidbodyConstraints.FreezeRotation;
             }
-                else { grabbing = false; }
         }
 
         //Simple rotation
@@ -134,16 +129,15 @@ public class Grab : Photon.PunBehaviour
     {
         grabbedObject = jointObj;
 
-        if (jointObj.GetComponent<Rigidbody>() != null)
+        if (grabbedObject != null)
         {
             //Saves grabbed object Material and Sets a new one while grabbed
             OGMat = grabbedObject.GetComponent<Renderer>().material;
             grabbedObject.GetComponent<Renderer>().material = grabMat;
 
             //Networking?
-            grabView = grabbedObject.GetComponent<PhotonView>();            
+            grabView = grabbedObject.GetComponent<PhotonView>();
             grabView.RequestOwnership();
-            
 
             //Adds Joint componenet
             grabJoint = gameObject.AddComponent<FixedJoint>();
@@ -154,7 +148,7 @@ public class Grab : Photon.PunBehaviour
     //Releases all joints and deletes them
     void ReleaseJoint()
     {
-        if (grabbedObject.GetComponent<Rigidbody>() != null)
+        if (grabbedObject)
         {
             grabbing = false;
 
@@ -187,9 +181,7 @@ public class Grab : Photon.PunBehaviour
             //Fixes a bug where gravity would be on but not applied.
             goRb.AddForce(-transform.up);
 
-            grabView.TransferOwnership(PhotonPlayer.Find(1));
-
-            //Set Material of object to it's original Material
+           //Set Material of object to it's original Material
             grabbedObject.GetComponent<Renderer>().material = OGMat;
 
             Destroy(grabJoint);
@@ -228,7 +220,8 @@ public class Grab : Photon.PunBehaviour
 
         //Forward Raycast check
         if (fHits != null)
-        {            
+        {
+            grabbing = true;
 
             if (fHits.Length > 0)
             {
@@ -236,36 +229,37 @@ public class Grab : Photon.PunBehaviour
 
                 for (int i = 0; i > fHits.Length; i++)
                 {
-                    if (fHits[i].distance < fHits[closestHit].distance && fHits[closestHit].collider.gameObject.GetComponent<Rigidbody>())
+                    if (fHits[i].distance < fHits[closestHit].distance)
                         closestHit = i;
                 }
 
-                grabbing = true;
-                return fHits[closestHit].collider.gameObject;                
+                 return fHits[closestHit].collider.gameObject;                
             }
         }
 
         //Backwards Raycast check
         if (bHits != null)
         {
-            
+            grabbing = true;
+
             if (bHits.Length > 0)
             {
                 int closestHit = 0;
 
                 for (int i = 0; i > bHits.Length; i++)
                 {
-                    if (bHits[i].distance < bHits[closestHit].distance && fHits[closestHit].collider.gameObject.GetComponent<Rigidbody>())
+                    if (bHits[i].distance < bHits[closestHit].distance)
                         closestHit = i;
                 }
-                grabbing = true;
+
                 return bHits[closestHit].collider.gameObject;                
             }
         }
 
         //Right Raycast check
         if (rHits != null)
-        {           
+        {
+            grabbing = true;
            
             if (rHits.Length > 0)
             {
@@ -273,10 +267,10 @@ public class Grab : Photon.PunBehaviour
 
                 for (int i = 0; i > rHits.Length; i++)
                 {
-                    if (rHits[i].distance < rHits[closestHit].distance && fHits[closestHit].collider.gameObject.GetComponent<Rigidbody>())
+                    if (rHits[i].distance < rHits[closestHit].distance)
                         closestHit = i;
                 }
-                grabbing = true;
+
                 return rHits[closestHit].collider.gameObject;                
             }
         }
@@ -284,6 +278,7 @@ public class Grab : Photon.PunBehaviour
         //Left Raycast check
         if (lHits != null)
         {
+            grabbing = true;
            
             if (lHits.Length > 0)
             {
@@ -291,19 +286,18 @@ public class Grab : Photon.PunBehaviour
 
                 for (int i = 0; i > lHits.Length; i++)
                 {
-                    if (lHits[i].distance < lHits[closestHit].distance && fHits[closestHit].collider.gameObject.GetComponent<Rigidbody>())
+                    if (lHits[i].distance < lHits[closestHit].distance)
                         closestHit = i;
                 }
-                grabbing = true;
+
                 return lHits[closestHit].collider.gameObject;
             }
         }
 
         //Returns null if no GameObjects are found
-        grabbing = false;
         return null;
     }
-
+    
     
 
 }
