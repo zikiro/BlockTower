@@ -25,11 +25,7 @@ GameObject:
   - component: {fileID: 114794228541759218}
   - component: {fileID: 65151544097531974}
   - component: {fileID: 114718176016660320}
-<<<<<<< HEAD
   - component: {fileID: 114558001425362160}
-=======
-  - component: {fileID: 114555349723348998}
->>>>>>> aacf7e42f18511487ef8707c3b0ab443631838b5
   m_Layer: 8
   m_Name: playerprefab
   m_TagString: Untagged
@@ -255,7 +251,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!81 &81597098494078368
 AudioListener:
   m_ObjectHideFlags: 1
@@ -298,9 +293,6 @@ MonoBehaviour:
   target: {fileID: 0}
   rotateSpeed: 5
 --- !u!114 &114558001425362160
-=======
---- !u!114 &114555349723348998
->>>>>>> aacf7e42f18511487ef8707c3b0ab443631838b5
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -308,18 +300,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1490039613347232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
   m_SynchronizeAngularVelocity: 1
-=======
-  m_Script: {fileID: 11500000, guid: 4946ec0b930530840920617c82a3e3f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vrPlayer: {fileID: 1788282128259074, guid: d8f6a28c3188cc8439e6c3ff86cd6dde, type: 2}
->>>>>>> aacf7e42f18511487ef8707c3b0ab443631838b5
 --- !u!114 &114718176016660320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,7 +353,6 @@ MonoBehaviour:
   grabMat: {fileID: 2100000, guid: 962b89c5e7aca3c408b54cec87502914, type: 2}
   myView: {fileID: 0}
   grabView: {fileID: 0}
-<<<<<<< HEAD
 --- !u!124 &124355789443623364
 Behaviour:
   m_ObjectHideFlags: 1
@@ -383,5 +367,3 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1606711943292230}
   m_Enabled: 1
-=======
->>>>>>> aacf7e42f18511487ef8707c3b0ab443631838b5

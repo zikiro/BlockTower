@@ -19,7 +19,7 @@ namespace Leap.Unity {
   public enum ModelType { Graphics, Physics };
 
   [ExecuteInEditMode]
-  public abstract class IHandModel : Photon.MonoBehaviour {
+  public abstract class IHandModel : MonoBehaviour {
     public event Action OnBegin;
     public event Action OnFinish;
     private bool isTracked = false;

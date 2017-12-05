@@ -69,7 +69,6 @@ public class NetworkManager : Photon.PunBehaviour {
         
         base.OnJoinedRoom();
 
-<<<<<<< HEAD
         if (PC)
         {
 
@@ -78,13 +77,6 @@ public class NetworkManager : Photon.PunBehaviour {
             //Random color
             Color Rando = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
             Player.GetComponent<Renderer>().material.SetColor("_Color", Rando);
-=======
-        if (XRDevice.isPresent == true)
-        {
-          
-                GameObject Player = PhotonNetwork.Instantiate("OVRPlayer", new Vector3(0f, 1.32f, -2.46f), Quaternion.identity, 0);
-            
->>>>>>> aacf7e42f18511487ef8707c3b0ab443631838b5
         }
 
         else if (LeapMotion)
@@ -133,15 +125,7 @@ public class NetworkManager : Photon.PunBehaviour {
     // Update is called once per frame
     void Update ()
     {
-<<<<<<< HEAD
         
     }
 
-=======
-		//if(PhotonNetwork.connected == true)
-  //      {
-  //          gameObject.GetComponent<Camera>().enabled = false;
-  //      }
-	}
->>>>>>> aacf7e42f18511487ef8707c3b0ab443631838b5
 }
