@@ -547,6 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15d7ba1fdba6e74ebc79de78300cb27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ver: 0.255
   Player: {fileID: 0}
   layers: 12
 --- !u!114 &1237407459
