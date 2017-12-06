@@ -9,6 +9,7 @@ public class NetworkManager : Photon.PunBehaviour {
     public string ver;
     public bool PC = true;
     public bool Oculus = false;
+    public bool Android = false;
     public bool LeapMotion = false;
     public bool Hololens = false;
     public bool ARCore = false;
@@ -111,6 +112,10 @@ public class NetworkManager : Photon.PunBehaviour {
             //Random color
             Color Rando = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
             Player.GetComponent<Renderer>().material.SetColor("_Color", Rando);
+        }
+        else if(Android)
+        {
+            //Spawn Android Player
         }
 
 
