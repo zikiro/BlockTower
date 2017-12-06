@@ -6,7 +6,7 @@ using UnityEngine.XR;
 public class NetworkManager : Photon.PunBehaviour {
 
     // Use this for initialization
-    public string ver = "0.1";
+    public string ver;
     public GameObject Player;
     public int layers = 12;
 	void Start ()

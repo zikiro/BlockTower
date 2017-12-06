@@ -548,7 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ver: 0.255
-  Player: {fileID: 0}
+  Player: {fileID: 1207537227011768, guid: 61e1da61832728c41a2b8b383a6c6196, type: 2}
   layers: 12
 --- !u!114 &1237407459
 MonoBehaviour:
