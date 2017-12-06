@@ -38,17 +38,17 @@ public class NetworkManager : Photon.PunBehaviour {
         {
             if (((col / 2) * 2) == col)
             {
-                for (int i = 0; i < 3; i++)
+                for (float i = 0; i < 0.15f; i = i + 0.05f)
                 {
-                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (1 + col), 1), Quaternion.identity, 0);
+                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (0.05f + (col / 20f)), 0.05f), Quaternion.identity, 0);
 
                 }
             }
             else
             {
-                for (int i = 0; i < 3; i++)
+                for (float i = 0; i < 0.15f; i = i + 0.05f)
                 {
-                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(1, (1 + col), i), Quaternion.Euler(0, 90, 0), 0);
+                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(0.05f, (0.05f + (col / 20f)), i), Quaternion.Euler(0, 90, 0), 0);
 
                 }
             }

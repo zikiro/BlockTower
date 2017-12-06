@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AndroidGrab : MonoBehaviour
 {
-    private float speed = 0.005f, timeHeld = 0;
+    private float speed = .0005f, timeHeld = 0;
 
     private bool isGrabbed = false, rotated = false, moving = false;
     private GameObject selectedObject = null;
@@ -39,14 +39,12 @@ public class AndroidGrab : MonoBehaviour
         //isGrabbed = false;
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
-            
-            //selectedObject.GetComponent<Rigidbody>().useGravity = false;
-            //selectedObject.GetComponent<Renderer>().material.color = Color.magenta;
             if (selectedObject == null)
             {
                 return;
             }
             moving = true;
+            timeHeld = 0;
             float multiplier = 1;
             if (selectedObject.transform.rotation.y >= -1)
             {
@@ -58,9 +56,10 @@ public class AndroidGrab : MonoBehaviour
             }
             // Get movement of the finger since last frame
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+            Rigidbody selectedRigid = selectedObject.GetComponent<Rigidbody>();
             if (Mathf.Abs(touchDeltaPosition.y) > Mathf.Abs(touchDeltaPosition.x))
             {
-                selectedObject.transform.Translate(0, touchDeltaPosition.y * speed, 0);
+                selectedObject.transform.Translate(0, touchDeltaPosition.y * speed, 0);  
             }
             else
             {
