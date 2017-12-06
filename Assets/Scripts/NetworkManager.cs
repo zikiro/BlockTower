@@ -6,13 +6,14 @@ using UnityEngine.XR;
 public class NetworkManager : Photon.PunBehaviour {
 
     // Use this for initialization
+    public string ver = "0.1";
     public GameObject Player;
     public int layers = 12;
 	void Start ()
     {
 
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
-        PhotonNetwork.ConnectUsingSettings("0.1");
+        PhotonNetwork.ConnectUsingSettings(ver);
         PhotonNetwork.automaticallySyncScene = true;
     }
 
