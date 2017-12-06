@@ -18,6 +18,6 @@ public class LoadGame : MonoBehaviour {
     public void load()
     {
         Destroy(this.gameObject);
-        SceneManager.LoadScene("Jenga Base");
+        SceneManager.LoadScene("Tower Base");
     }
 }
