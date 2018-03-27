@@ -1,21 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HoloToolkit.Unity.InputModule;
 
-public class MyHolo : MonoBehaviour {
+public class MyHolo : MonoBehaviour
+{
 
     Joint myJoint;
     PhotonView grabbed;
-   
-	// Use this for initialization
-	void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void joinObject(GameObject tarObj)
     {
@@ -34,5 +38,4 @@ public class MyHolo : MonoBehaviour {
 
         tarObj.GetComponent<Rigidbody>().AddForce(-transform.up);
     }
-        
 }

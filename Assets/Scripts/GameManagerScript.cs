@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HoloToolkit.Unity.InputModule;
 
-public class GameManagerScript : MonoBehaviour
+public class GameManagerScript : MonoBehaviour, ISpeechHandler
 {
     //
     //Controls elements of the game such as end game conditions and resetting the game space
@@ -15,9 +16,9 @@ public class GameManagerScript : MonoBehaviour
     public float ResetTimer = 5f;
     public bool gameOver = false;
     public int blocksGrounded = 0;
-    
+
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         //Finds all blocks in the scene using a tag
         foreach (GameObject block in GameObject.FindGameObjectsWithTag("Block"))
@@ -25,9 +26,9 @@ public class GameManagerScript : MonoBehaviour
             AllBlocks.Add(block);
         }
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         if (blocksGrounded >= 5) { gameOver = true; }
         if (blocksGrounded < 5) { gameOver = false; }
@@ -41,14 +42,14 @@ public class GameManagerScript : MonoBehaviour
 
             }
         }
-        
-	}
+
+    }
 
     //Resets blocks to the state they were when the scene starts
     public void ResetAllBlocks()
-    {        
+    {
         foreach (GameObject block in AllBlocks)
-        {            
+        {
             block.GetComponent<Blocks>().ResetBlock();
         }
         blocksGrounded = 0;
@@ -57,5 +58,15 @@ public class GameManagerScript : MonoBehaviour
     public void groundedBlocksAdd()
     {
         blocksGrounded++;
+    }
+
+    public void OnSpeechKeywordRecognized(SpeechEventData eventData)
+    {
+        switch (eventData.RecognizedText.ToLower())
+        {
+            case "reset":
+                ResetAllBlocks();
+                break;
+        }
     }
 }

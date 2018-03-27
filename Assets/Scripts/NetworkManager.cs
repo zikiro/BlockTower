@@ -8,12 +8,15 @@ public class NetworkManager : Photon.PunBehaviour {
     // Use this for initialization
     public GameObject Player;
     public int layers = 12;
+
+    GameManagerScript gManager;
 	void Start ()
     {
 
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
         PhotonNetwork.ConnectUsingSettings("0.255");
         PhotonNetwork.automaticallySyncScene = true;
+        gManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
     }
 
     void OnGUI()
@@ -42,7 +45,7 @@ public class NetworkManager : Photon.PunBehaviour {
                 for (float i = 0; i < 0.15; i = i + 0.05f)
                 {
                     GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (0.05f + (col / 20f)), 0.05f), Quaternion.identity, 0);
-
+                    gManager.AllBlocks.Add(Layer);
                 }
             }
             else
@@ -50,7 +53,7 @@ public class NetworkManager : Photon.PunBehaviour {
                 for (float i = 0; i < 0.15; i = i + 0.05f)
                 {
                     GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(0.05f, (0.05f + (col / 20f)), i), Quaternion.Euler(0, 90, 0), 0);
-
+                    gManager.AllBlocks.Add(Layer);
                 }
             }
 
