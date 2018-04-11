@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grab : MonoBehaviour
+public class Grab : Photon.PunBehaviour
 {
 
     public GameObject grabbedObject;
@@ -14,7 +14,7 @@ public class Grab : MonoBehaviour
     Rigidbody goRb;
     public float mySpeed = 5f;
     public Material OGMat;
-    
+
     //Needs to be set in Editor
     public Material grabMat;
 
@@ -23,56 +23,61 @@ public class Grab : MonoBehaviour
 
 
     // Use this for initialization
-    void Start ()
-    {         
+    void Start()
+    {
         myRb = gameObject.GetComponent<Rigidbody>();
         myView = gameObject.GetComponent<PhotonView>();
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-      if(myView.isMine)
-      { 
-
-        Movement();
-
-
-        //Sets the Grabbed objects Rigidbody properties
-        if (grabbing == true)
+        if (myView.isMine)
         {
-            myRb.constraints = RigidbodyConstraints.FreezeRotation;
-            if (grabbedObject)
-            {                
-                goRb = grabbedObject.GetComponent<Rigidbody>();
-                goRb.useGravity = false;
-                goRb.constraints = RigidbodyConstraints.FreezeRotation;
-            }
-        }
+            if (!gameObject.GetComponentInChildren<Camera>().enabled)
+            { gameObject.GetComponentInChildren<Camera>().enabled = true; }
 
-        //Simple rotation
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            if(grabbedObject)
+            Movement();
+
+
+            //Sets the Grabbed objects Rigidbody properties
+            if (grabbing == true)
             {
-                grabbedObject.transform.Rotate(0, 90, 0);
+                myRb.constraints = RigidbodyConstraints.FreezeRotation;
+                if (grabbedObject)
+                {
+                    if (goRb = grabbedObject.GetComponent<Rigidbody>())
+                    {
+                        goRb.useGravity = false;
+                        goRb.constraints = RigidbodyConstraints.FreezeRotation;
+                    }
+                }
+                else { grabbing = false; }
             }
-        }
 
-        //Grab
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //CreateJoint(RayForward());
-            CreateJoint(RayCardinal());
-        }
+            //Simple rotation
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                if (grabbedObject)
+                {
+                    grabbedObject.transform.Rotate(0, 90, 0);
+                }
+            }
 
-        //Release
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            ReleaseJoint();
-        }
+            //Grab
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                //CreateJoint(RayForward());
+                CreateJoint(RayCardinal());
+            }
 
-      }
+            //Release
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                ReleaseJoint();
+            }
+
+        }
     }
 
     void Movement()
@@ -95,7 +100,7 @@ public class Grab : MonoBehaviour
     }
 
 
-        GameObject RayForward()
+    GameObject RayForward()
     {
         //Raycast Forward
         RaycastHit[] fHits;
@@ -114,7 +119,7 @@ public class Grab : MonoBehaviour
                     if (fHits[i].distance < fHits[closestHit].distance)
                         closestHit = i;
                 }
-                
+
                 //returns GameObject hit
                 return fHits[closestHit].collider.gameObject;
             }
@@ -129,7 +134,7 @@ public class Grab : MonoBehaviour
     {
         grabbedObject = jointObj;
 
-        if (grabbedObject != null)
+        if (jointObj.GetComponent<Rigidbody>() != null)
         {
             //Saves grabbed object Material and Sets a new one while grabbed
             OGMat = grabbedObject.GetComponent<Renderer>().material;
@@ -138,6 +143,7 @@ public class Grab : MonoBehaviour
             //Networking?
             grabView = grabbedObject.GetComponent<PhotonView>();
             grabView.RequestOwnership();
+
 
             //Adds Joint componenet
             grabJoint = gameObject.AddComponent<FixedJoint>();
@@ -148,7 +154,7 @@ public class Grab : MonoBehaviour
     //Releases all joints and deletes them
     void ReleaseJoint()
     {
-        if (grabbedObject)
+        if (grabbedObject.GetComponent<Rigidbody>() != null)
         {
             grabbing = false;
 
@@ -181,7 +187,9 @@ public class Grab : MonoBehaviour
             //Fixes a bug where gravity would be on but not applied.
             goRb.AddForce(-transform.up);
 
-           //Set Material of object to it's original Material
+            grabView.TransferOwnership(PhotonPlayer.Find(1));
+
+            //Set Material of object to it's original Material
             grabbedObject.GetComponent<Renderer>().material = OGMat;
 
             Destroy(grabJoint);
@@ -221,7 +229,6 @@ public class Grab : MonoBehaviour
         //Forward Raycast check
         if (fHits != null)
         {
-            grabbing = true;
 
             if (fHits.Length > 0)
             {
@@ -229,18 +236,18 @@ public class Grab : MonoBehaviour
 
                 for (int i = 0; i > fHits.Length; i++)
                 {
-                    if (fHits[i].distance < fHits[closestHit].distance)
+                    if (fHits[i].distance < fHits[closestHit].distance && fHits[closestHit].collider.gameObject.GetComponent<Rigidbody>())
                         closestHit = i;
                 }
 
-                 return fHits[closestHit].collider.gameObject;                
+                grabbing = true;
+                return fHits[closestHit].collider.gameObject;
             }
         }
 
         //Backwards Raycast check
         if (bHits != null)
         {
-            grabbing = true;
 
             if (bHits.Length > 0)
             {
@@ -248,56 +255,55 @@ public class Grab : MonoBehaviour
 
                 for (int i = 0; i > bHits.Length; i++)
                 {
-                    if (bHits[i].distance < bHits[closestHit].distance)
+                    if (bHits[i].distance < bHits[closestHit].distance && fHits[closestHit].collider.gameObject.GetComponent<Rigidbody>())
                         closestHit = i;
                 }
-
-                return bHits[closestHit].collider.gameObject;                
+                grabbing = true;
+                return bHits[closestHit].collider.gameObject;
             }
         }
 
         //Right Raycast check
         if (rHits != null)
         {
-            grabbing = true;
-           
+
             if (rHits.Length > 0)
             {
                 int closestHit = 0;
 
                 for (int i = 0; i > rHits.Length; i++)
                 {
-                    if (rHits[i].distance < rHits[closestHit].distance)
+                    if (rHits[i].distance < rHits[closestHit].distance && fHits[closestHit].collider.gameObject.GetComponent<Rigidbody>())
                         closestHit = i;
                 }
-
-                return rHits[closestHit].collider.gameObject;                
+                grabbing = true;
+                return rHits[closestHit].collider.gameObject;
             }
         }
 
         //Left Raycast check
         if (lHits != null)
         {
-            grabbing = true;
-           
+
             if (lHits.Length > 0)
             {
                 int closestHit = 0;
 
                 for (int i = 0; i > lHits.Length; i++)
                 {
-                    if (lHits[i].distance < lHits[closestHit].distance)
+                    if (lHits[i].distance < lHits[closestHit].distance && fHits[closestHit].collider.gameObject.GetComponent<Rigidbody>())
                         closestHit = i;
                 }
-
+                grabbing = true;
                 return lHits[closestHit].collider.gameObject;
             }
         }
 
         //Returns null if no GameObjects are found
+        grabbing = false;
         return null;
     }
-    
-    
+
+
 
 }
