@@ -11,7 +11,7 @@ public class NetworkManager : Photon.PunBehaviour {
     public bool Oculus = false;
     public bool LeapMotion = false;
     public bool Hololens = false;
-    public bool ARCore = false;
+    public bool Android = false;
     public bool Xbone = false;
 
     public int layers = 12;
@@ -82,12 +82,7 @@ public class NetworkManager : Photon.PunBehaviour {
         else if (LeapMotion)
         {
 
-            GameObject Player = PhotonNetwork.Instantiate("BasicVRPlayer", new Vector3(0, .02f, -.08f), Quaternion.identity, 0);
-
-            //Random color
-            Color Rando = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-            Player.GetComponent<Renderer>().material.SetColor("_Color", Rando);
-
+           
         }
         
         else if(Oculus)
@@ -100,9 +95,10 @@ public class NetworkManager : Photon.PunBehaviour {
             //Spawn Hololens Player
         }
 
-        else if (ARCore)
+        else if (Android)
         {
-            //Spawn ARCore Player
+            GameObject Player = PhotonNetwork.Instantiate("AndroidPlayer", new Vector3(0, .1f, -.4f), Quaternion.identity, 0);
+
         }
         else if (Xbone)
         {
