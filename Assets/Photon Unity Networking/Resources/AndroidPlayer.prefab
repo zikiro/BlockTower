@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 124708771278281252}
   - component: {fileID: 81297063985845484}
   - component: {fileID: 114392520418766674}
-  - component: {fileID: 114721235486145028}
   - component: {fileID: 114808552828072694}
   - component: {fileID: 114177027156908254}
   - component: {fileID: 114479906190094216}
@@ -147,24 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760c1b48dca026c439e9544f72d62d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114721235486145028
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1268759818942956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e15d7ba1fdba6e74ebc79de78300cb27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PC: 0
-  Oculus: 0
-  LeapMotion: 0
-  Hololens: 0
-  Android: 1
-  Xbone: 0
-  layers: 12
 --- !u!114 &114808552828072694
 MonoBehaviour:
   m_ObjectHideFlags: 1

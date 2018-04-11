@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Tower Base.unity
     guid: 26225b5119f7d7f4fa745108cb595955
   - enabled: 1

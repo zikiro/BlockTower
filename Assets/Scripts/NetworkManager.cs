@@ -41,27 +41,31 @@ public class NetworkManager : Photon.PunBehaviour
 
     public override void OnCreatedRoom()
     {
-
-        Debug.Log("OnCreatedRoom() : You Have Created a Room : " + PhotonNetwork.room.Name);
-        for (int col = 0; col < layers; col++)
+        if (PhotonNetwork.isMasterClient)
         {
-            if (((col / 2) * 2) == col)
+
+
+            Debug.Log("OnCreatedRoom() : You Have Created a Room : " + PhotonNetwork.room.Name);
+            for (int col = 0; col < layers; col++)
             {
-                for (float i = 0; i < 0.04; i = i + 0.02f)
+                if (((col / 2) * 2) == col)
                 {
-                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (0.02f + (col / 50f)), 0.02f), Quaternion.identity, 0);
+                    for (float i = 0; i < 0.04; i = i + 0.02f)
+                    {
+                        GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (0.02f + (col / 50f)), 0.02f), Quaternion.identity, 0);
 
+                    }
                 }
-            }
-            else
-            {
-                for (float i = 0; i < 0.04; i = i + 0.02f)
+                else
                 {
-                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(0.02f, (0.02f + (col / 50f)), i), Quaternion.Euler(0, 90, 0), 0);
+                    for (float i = 0; i < 0.04; i = i + 0.02f)
+                    {
+                        GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(0.02f, (0.02f + (col / 50f)), i), Quaternion.Euler(0, 90, 0), 0);
 
+                    }
                 }
-            }
 
+            }
         }
     }
 
