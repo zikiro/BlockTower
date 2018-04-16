@@ -27,7 +27,6 @@ GameObject:
   - component: {fileID: 114203883274488980}
   - component: {fileID: 114195425692747580}
   - component: {fileID: 114653765842049452}
-  - component: {fileID: 114467734649250106}
   m_Layer: 0
   m_Name: JBlock
   m_TagString: Block
@@ -96,7 +95,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1351957400600984}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -157,17 +156,6 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &114467734649250106
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1351957400600984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d746f3c4656b664d9ab8163225c269f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114531613028759206
 MonoBehaviour:
   m_ObjectHideFlags: 1

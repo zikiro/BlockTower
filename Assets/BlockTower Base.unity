@@ -215,6 +215,7 @@ MonoBehaviour:
   Hololens: 0
   Android: 1
   Xbone: 0
+  androidPos: {x: -0.15, y: 0.09, z: -0.15}
   layers: 12
 --- !u!4 &730927580
 Transform:
