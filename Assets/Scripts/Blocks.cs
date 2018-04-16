@@ -15,12 +15,24 @@ public class Blocks : MonoBehaviour
     public bool grounded = false;
     public PhotonView myView;
 
-    // Use this for initialization
-    void Start ()
+    HoloBlock hBlock = null;
+
+
+    private void Awake()
     {
         MyRB = GetComponent<Rigidbody>();
         StartPosition = gameObject.transform.position;
         StartRotation = gameObject.transform.rotation;
+        hBlock = GetComponent<HoloBlock>();
+        if (MyRB == null)
+        {
+            Debug.Log("Failed to get rigidbody");
+        }
+    }
+    // Use this for initialization
+    void Start ()
+    {
+       
     }
 	
 	// Update is called once per frame
@@ -47,6 +59,10 @@ public class Blocks : MonoBehaviour
     {        
         MyRB.velocity = new Vector3(0, 0, 0);
         MyRB.Sleep();
+        if (hBlock.selected == true)
+        {
+            hBlock.OnSelect();
+        }
         gameObject.transform.position = StartPosition;
         gameObject.transform.rotation = StartRotation;
         grounded = false;

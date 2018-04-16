@@ -32,15 +32,22 @@ public class GameManagerScript : MonoBehaviour, ISpeechHandler
     {
         if (blocksGrounded >= 5) { gameOver = true; }
         if (blocksGrounded < 5) { gameOver = false; }
-
+        
         if (gameOver == true)
         {
             //PC Reset button
             if (Input.GetKeyDown(KeyCode.Backspace))
             {
                 ResetAllBlocks();
-
+                
             }
+        }
+
+        //PC Reset button
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            ResetAllBlocks();
+
         }
 
     }

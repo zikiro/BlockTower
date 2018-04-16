@@ -12,7 +12,7 @@ public class HoloBlock : MonoBehaviour, IInputHandler, IInputClickHandler, ISpee
 
     Joint joint;
 
-    bool selected = false;
+    public bool selected = false;
 
     Renderer myRend;
 
