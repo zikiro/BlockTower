@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity.InputModule;
 
 public class GameManagerScript : MonoBehaviour, ISpeechHandler
 {
+    public int layers = 12;
     //
     //Controls elements of the game such as end game conditions and resetting the game space
     //
@@ -60,11 +62,37 @@ public class GameManagerScript : MonoBehaviour, ISpeechHandler
     //Resets blocks to the state they were when the scene starts
     public void ResetAllBlocks()
     {
-        foreach (GameObject block in AllBlocks)
+        
+        foreach(GameObject go in GameObject.FindGameObjectsWithTag("Block"))
         {
-            block.GetComponent<Blocks>().ResetBlock();
+           
+            Destroy(go);
+            PhotonNetwork.Destroy(go);
         }
-        blocksGrounded = 0;
+        Array.Clear(AllBlocks, 0, 0);
+
+        for (int col = 0; col < layers; col++)
+        {
+            if (((col / 2) * 2) == col)
+            {
+                for (float i = 0; i < 0.04; i = i + 0.02f)
+                {
+                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (0.02f + (col / 50f)), 0.02f), Quaternion.identity, 0);
+
+                }
+            }
+            else
+            {
+                for (float i = 0; i < 0.04; i = i + 0.02f)
+                {
+                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(0.02f, (0.02f + (col / 50f)), i), Quaternion.Euler(0, 90, 0), 0);
+
+                }
+            }
+
+        }
+
+        
     }
 
     public void groundedBlocksAdd()
