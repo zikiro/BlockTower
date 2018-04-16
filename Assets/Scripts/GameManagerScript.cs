@@ -11,25 +11,25 @@ public class GameManagerScript : MonoBehaviour, ISpeechHandler
 
 
     //List of all blocks in the scene
-    public List<GameObject> AllBlocks = new List<GameObject>();
+    public GameObject[] AllBlocks;
 
     public float ResetTimer = 5f;
     public bool gameOver = false;
     public int blocksGrounded = 0;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-        //Finds all blocks in the scene using a tag
-        foreach (GameObject block in GameObject.FindGameObjectsWithTag("Block"))
-        {
-            AllBlocks.Add(block);
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(AllBlocks.Length == 0)
+        {
+            AllBlocks = GameObject.FindGameObjectsWithTag("Block");
+        }
         if (blocksGrounded >= 5) { gameOver = true; }
         if (blocksGrounded < 5) { gameOver = false; }
         
@@ -49,6 +49,11 @@ public class GameManagerScript : MonoBehaviour, ISpeechHandler
             ResetAllBlocks();
 
         }
+
+        
+        
+     
+        
 
     }
 
