@@ -139,7 +139,7 @@ public class AndroidGrab : MonoBehaviour
     {
         for (int i = 0; i < blocks.Length; i++)
         {
-            blocks[i].GetComponent<Renderer>().material.color = Color.green;
+         blocks[i].GetComponent<Renderer>().material.color = Color.green;
         }
     }
 }
