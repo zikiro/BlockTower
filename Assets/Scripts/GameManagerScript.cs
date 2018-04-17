@@ -65,37 +65,45 @@ public class GameManagerScript : Photon.MonoBehaviour
    
     public void ResetAllBlocks()
     {
-        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Block"))
+
+        if (PhotonNetwork.isMasterClient)
         {
-
-            Destroy(go);
-            PhotonNetwork.Destroy(go);
-        }
-
-        Array.Clear(AllBlocks, 0, 0);
-        
-
-        for (int col = 0; col < layers; col++)
-        {
-            if (((col / 2) * 2) == col)
+            foreach (GameObject go in GameObject.FindGameObjectsWithTag("Block"))
             {
-                for (float i = 0; i < 0.04; i = i + 0.02f)
-                {
-                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (0.02f + (col / 50f)), 0.02f), Quaternion.identity, 0);
 
-                }
-            }
-            else
-            {
-                for (float i = 0; i < 0.04; i = i + 0.02f)
-                {
-                    GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(0.02f, (0.02f + (col / 50f)), i), Quaternion.Euler(0, 90, 0), 0);
-
-                }
+                Destroy(go);
+                PhotonNetwork.Destroy(go);
             }
 
-        }
+            Array.Clear(AllBlocks, 0, 0);
 
+
+            for (int col = 0; col < layers; col++)
+            {
+                if (((col / 2) * 2) == col)
+                {
+                    for (float i = 0; i < 0.04; i = i + 0.02f)
+                    {
+                        GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(i, (0.02f + (col / 50f)), 0.02f), Quaternion.identity, 0);
+
+                    }
+                }
+                else
+                {
+                    for (float i = 0; i < 0.04; i = i + 0.02f)
+                    {
+                        GameObject Layer = PhotonNetwork.Instantiate("JBlock", new Vector3(0.02f, (0.02f + (col / 50f)), i), Quaternion.Euler(0, 90, 0), 0);
+
+                    }
+                }
+
+            }
+
+        }
+        else
+        {
+            return;
+        }
 
     }
 

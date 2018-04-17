@@ -38,7 +38,7 @@ public class AndroidGrab : MonoBehaviour
         }
         
         //isGrabbed = false;
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        if (Input.touchCount > 0 &&Input.GetTouch(0).phase == TouchPhase.Moved)
         {
             if (selectedObject == null)
             {
@@ -97,7 +97,7 @@ public class AndroidGrab : MonoBehaviour
                             {
                                 blocks[i].GetComponent<Renderer>().material = origin;
                                 blocks[i].GetComponent<Rigidbody>().useGravity = true;
-                                //blocks[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                                blocks[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                             }
                         }
                     }
