@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AndroidGrab : MonoBehaviour
+public class AndroidGrab : Photon.MonoBehaviour
 {
     private float speed = .0005f, timeHeld = 0;
 
@@ -23,113 +23,118 @@ public class AndroidGrab : MonoBehaviour
     }
     void Update()
     {
-        getAllBlocks();
-        if (selectedObject != null)
+        if (photonView.isMine)
         {
-            for (int i = 0; i < blocks.Length; i++)
-            {
-                blocks[i].GetComponent<Renderer>().material = origin;
-                blocks[i].GetComponent<Rigidbody>().useGravity = true;
-                blocks[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            }
-            selectedObject.GetComponent<Renderer>().material = selected;
-            selectedObject.GetComponent<Rigidbody>().useGravity = false;
-            selectedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        }
-        
-        //isGrabbed = false;
-        if (Input.touchCount > 0 &&Input.GetTouch(0).phase == TouchPhase.Moved)
-        {
-            if (selectedObject == null)
-            {
-                return;
-            }
-            moving = true;
-            timeHeld = 0;
-            float multiplier = 1;
-            if (selectedObject.transform.rotation.y >= -1)
-            {
-                multiplier = 1;
-            }
-            else
-            {
-                multiplier = -1;
-            }
-            // Get movement of the finger since last frame
-            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-            Rigidbody selectedRigid = selectedObject.GetComponent<Rigidbody>();
-            if (Mathf.Abs(touchDeltaPosition.y) > Mathf.Abs(touchDeltaPosition.x))
-            {
-                selectedObject.transform.Translate(0, touchDeltaPosition.y * speed, 0);  
-            }
-            else
-            {
-                selectedObject.transform.Translate(0, 0, touchDeltaPosition.x * speed * multiplier);
-            }
 
-            // Move object across XY plane    
-        }
-        else
-        {
-            moving = false;
-        }
 
-        if (Input.touchCount > 0 /*&& !isGrabbed*/)
-        {
-            foreach (Touch touch in Input.touches)
+            getAllBlocks();
+            if (selectedObject != null)
             {
-                if (touch.tapCount == 2)
+                for (int i = 0; i < blocks.Length; i++)
                 {
-                    getAllBlocks();
-
-                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
-                    RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        if (hit.transform.gameObject.tag == "Block")
-                        {
-                            selectedObject = hit.transform.gameObject;
-                        }
-                        else
-                        {
-                            selectedObject = null;
-                            for (int i = 0; i < blocks.Length; i++)
-                            {
-                                blocks[i].GetComponent<Renderer>().material = origin;
-                                blocks[i].GetComponent<Rigidbody>().useGravity = true;
-                                blocks[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                            }
-                        }
-                    }
+                    blocks[i].GetComponent<Renderer>().material = origin;
+                    blocks[i].GetComponent<Rigidbody>().useGravity = true;
+                    blocks[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 }
-                else if (touch.tapCount == 1)
+                selectedObject.GetComponent<Renderer>().material = selected;
+                selectedObject.GetComponent<Rigidbody>().useGravity = false;
+                selectedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            }
+
+            //isGrabbed = false;
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+            {
+                if (selectedObject == null)
                 {
-                    if (!moving)
+                    return;
+                }
+                moving = true;
+                timeHeld = 0;
+                float multiplier = 1;
+                if (selectedObject.transform.rotation.y >= -1)
+                {
+                    multiplier = 1;
+                }
+                else
+                {
+                    multiplier = -1;
+                }
+                // Get movement of the finger since last frame
+                Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                Rigidbody selectedRigid = selectedObject.GetComponent<Rigidbody>();
+                if (Mathf.Abs(touchDeltaPosition.y) > Mathf.Abs(touchDeltaPosition.x))
+                {
+                    selectedObject.transform.Translate(0, touchDeltaPosition.y * speed, 0);
+                }
+                else
+                {
+                    selectedObject.transform.Translate(0, 0, touchDeltaPosition.x * speed * multiplier);
+                }
+
+                // Move object across XY plane    
+            }
+            else
+            {
+                moving = false;
+            }
+
+            if (Input.touchCount > 0 /*&& !isGrabbed*/)
+            {
+                foreach (Touch touch in Input.touches)
+                {
+                    if (touch.tapCount == 2)
                     {
-                        timeHeld += Input.GetTouch(0).deltaTime;
-                    }
-                    if (timeHeld >= 1.0f)
-                    {
-                        if (selectedObject != null && !rotated)
+                        getAllBlocks();
+
+                        Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                        RaycastHit hit;
+                        if (Physics.Raycast(ray, out hit))
                         {
-                            if (selectedObject.transform.rotation.y == 0)
+                            if (hit.transform.gameObject.tag == "Block")
                             {
-                                float yRotation = 90;
-                                Vector3 selectedRotation = new Vector3(0, yRotation, 0);
-                                selectedObject.transform.rotation = Quaternion.Euler(selectedRotation);
+                                selectedObject = hit.transform.gameObject;
                             }
                             else
                             {
-                                float yRotation = 0;
-                                Vector3 selectedRotation = new Vector3(0, yRotation, 0);
-                                selectedObject.transform.rotation = Quaternion.Euler(selectedRotation);
+                                selectedObject = null;
+                                for (int i = 0; i < blocks.Length; i++)
+                                {
+                                    blocks[i].GetComponent<Renderer>().material = origin;
+                                    blocks[i].GetComponent<Rigidbody>().useGravity = true;
+                                    blocks[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                                }
                             }
-                            rotated = true;
                         }
-                        if (Input.GetTouch(0).phase == TouchPhase.Ended)
+                    }
+                    else if (touch.tapCount == 1)
+                    {
+                        if (!moving)
                         {
-                            timeHeld = 0;
-                            rotated = false;
+                            timeHeld += Input.GetTouch(0).deltaTime;
+                        }
+                        if (timeHeld >= 1.0f)
+                        {
+                            if (selectedObject != null && !rotated)
+                            {
+                                if (selectedObject.transform.rotation.y == 0)
+                                {
+                                    float yRotation = 90;
+                                    Vector3 selectedRotation = new Vector3(0, yRotation, 0);
+                                    selectedObject.transform.rotation = Quaternion.Euler(selectedRotation);
+                                }
+                                else
+                                {
+                                    float yRotation = 0;
+                                    Vector3 selectedRotation = new Vector3(0, yRotation, 0);
+                                    selectedObject.transform.rotation = Quaternion.Euler(selectedRotation);
+                                }
+                                rotated = true;
+                            }
+                            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+                            {
+                                timeHeld = 0;
+                                rotated = false;
+                            }
                         }
                     }
                 }
