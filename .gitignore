@@ -32,3 +32,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/OVR/Plugins/1.18.1/Win64/OVRPlugin.dll
