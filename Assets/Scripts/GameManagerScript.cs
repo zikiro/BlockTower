@@ -60,6 +60,7 @@ public class GameManagerScript : MonoBehaviour, ISpeechHandler
     }
 
     //Resets blocks to the state they were when the scene starts
+
     public void ResetAllBlocks()
     {
         
@@ -94,6 +95,7 @@ public class GameManagerScript : MonoBehaviour, ISpeechHandler
 
         
     }
+    
 
     public void groundedBlocksAdd()
     {
