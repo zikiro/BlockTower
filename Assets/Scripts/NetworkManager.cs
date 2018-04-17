@@ -17,7 +17,7 @@ public class NetworkManager : Photon.PunBehaviour {
     public int layers = 12;
 	void Start ()
     {
-        PhotonNetwork.autoCleanUpPlayerObjects = false;
+        PhotonNetwork.autoCleanUpPlayerObjects = true;
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
         PhotonNetwork.ConnectUsingSettings("Lime");
         PhotonNetwork.automaticallySyncScene = true;
