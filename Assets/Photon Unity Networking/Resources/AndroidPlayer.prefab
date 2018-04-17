@@ -162,8 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d08c3f84e72a144f86ef45b94fbbc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perspectiveZoomSpeed: 0.5
-  orthoZoomSpeed: 0.5
 --- !u!114 &114011624534225212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,12 +204,12 @@ MonoBehaviour:
   group: 0
   OwnerShipWasTransfered: 0
   prefixBackup: -1
-  synchronization: 0
+  synchronization: 3
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 0}
+  - {fileID: 114808552828072694}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

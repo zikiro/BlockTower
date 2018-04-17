@@ -16,19 +16,34 @@ public class GameManagerScript : Photon.MonoBehaviour
     public float ResetTimer = 5f;
     public bool gameOver = false;
     public int blocksGrounded = 0;
+    public GameObject androidPlayer;
+    public AndroidGrab grab;
     
     // Use this for initialization
     void Start ()
     {
       
     }
-	
-	// Update is called once per frame
-	void Update ()
+    void getAllBlocks()
     {
+        AllBlocks = GameObject.FindGameObjectsWithTag("Block");
+    }
+    // Update is called once per frame
+    void Update ()
+    {
+        if (GameObject.Find("AndroidPlayer(Clone)").GetPhotonView().isMine)
+        {
+            androidPlayer = GameObject.Find("AndroidPlayer(Clone)");
+            grab = androidPlayer.GetComponent<AndroidGrab>();
+        }
+        getAllBlocks();
         if (AllBlocks.Length == 0)
         {
             AllBlocks = GameObject.FindGameObjectsWithTag("Block");
+        }
+        if(grab.blocks.Length == 0)
+        {
+            grab.blocks = GameObject.FindGameObjectsWithTag("Block");
         }
 
         if (blocksGrounded >= 5) { gameOver = true; }
@@ -47,7 +62,7 @@ public class GameManagerScript : Photon.MonoBehaviour
 	}
 
     //Resets blocks to the state they were when the scene starts
-    [PunRPC]
+   
     public void ResetAllBlocks()
     {
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Block"))
@@ -56,7 +71,9 @@ public class GameManagerScript : Photon.MonoBehaviour
             Destroy(go);
             PhotonNetwork.Destroy(go);
         }
+
         Array.Clear(AllBlocks, 0, 0);
+        
 
         for (int col = 0; col < layers; col++)
         {

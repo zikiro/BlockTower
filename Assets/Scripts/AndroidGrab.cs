@@ -11,7 +11,7 @@ public class AndroidGrab : MonoBehaviour
     public GameObject prevObject;
     public Material origin, selected;
 
-    private GameObject[] blocks = null;
+    public GameObject[] blocks;
 
     void getAllBlocks()
     {
@@ -23,6 +23,7 @@ public class AndroidGrab : MonoBehaviour
     }
     void Update()
     {
+        getAllBlocks();
         if (selectedObject != null)
         {
             for (int i = 0; i < blocks.Length; i++)
@@ -96,7 +97,7 @@ public class AndroidGrab : MonoBehaviour
                             {
                                 blocks[i].GetComponent<Renderer>().material = origin;
                                 blocks[i].GetComponent<Rigidbody>().useGravity = true;
-                                blocks[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                                //blocks[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                             }
                         }
                     }
