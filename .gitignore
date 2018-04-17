@@ -33,3 +33,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 *.lock
+Assets/OSPNative/plugins/x86_64/AudioPluginOculusSpatializer.dll
