@@ -213,7 +213,7 @@ MonoBehaviour:
   Oculus: 0
   LeapMotion: 0
   Hololens: 0
-  ARCore: 0
+  Android: 0
   Xbone: 0
   layers: 12
 --- !u!4 &730927580
@@ -267,6 +267,10 @@ Prefab:
     - target: {fileID: 4000010560871102, guid: d379ed0a5618c9f479f58bd83a2d0ad3, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011021619270, guid: d379ed0a5618c9f479f58bd83a2d0ad3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 92000010221946138, guid: d379ed0a5618c9f479f58bd83a2d0ad3, type: 2}
