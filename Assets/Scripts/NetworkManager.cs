@@ -13,6 +13,7 @@ public class NetworkManager : Photon.PunBehaviour {
     public bool Hololens = false;
     public bool Android = false;
     public bool Xbone = false;
+    public Vector3 androidPos;
 
     public int layers = 12;
 	void Start ()
@@ -100,7 +101,8 @@ public class NetworkManager : Photon.PunBehaviour {
 
         else if (Android)
         {
-            GameObject Player = PhotonNetwork.Instantiate("AndroidPlayer", new Vector3(0, .1f, -.4f), Quaternion.identity, 0);
+            GameObject player = PhotonNetwork.Instantiate("AndroidPlayer", androidPos, Quaternion.Euler(2.292f, 45, 0), 0);
+            //Spawn Android Player
 
         }
         else if (Xbone)
