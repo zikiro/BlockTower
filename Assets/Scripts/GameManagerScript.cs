@@ -63,8 +63,7 @@ public class GameManagerScript : MonoBehaviour, ISpeechHandler
 
     public void ResetAllBlocks()
     {
-        if (PhotonNetwork.isMasterClient)
-        {
+        
             foreach (GameObject go in GameObject.FindGameObjectsWithTag("Block"))
             {
 
@@ -94,7 +93,7 @@ public class GameManagerScript : MonoBehaviour, ISpeechHandler
 
             }
 
-        }
+        
 
 
     }
