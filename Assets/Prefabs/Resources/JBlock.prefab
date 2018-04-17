@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114203883274488980}
   - component: {fileID: 114195425692747580}
   - component: {fileID: 114653765842049452}
+  - component: {fileID: 114150789361785196}
   m_Layer: 0
   m_Name: JBlock
   m_TagString: Block
@@ -115,6 +116,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114150789361785196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351957400600984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35144820bcc25444bb8f0fd767d9423e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SmoothingDelay: 5
 --- !u!114 &114195425692747580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,6 +164,7 @@ MonoBehaviour:
   - {fileID: 114195425692747580}
   - {fileID: 114653765842049452}
   - {fileID: 54126497173239080}
+  - {fileID: 114150789361785196}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -188,9 +202,9 @@ MonoBehaviour:
     SynchronizeEnabled: 1
     TeleportEnabled: 1
     TeleportIfDistanceGreaterThan: 0.001
-    InterpolateOption: 3
+    InterpolateOption: 4
     InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 1
+    InterpolateLerpSpeed: 9
     InterpolateMoveTowardsAcceleration: 2
     InterpolateMoveTowardsDeceleration: 2
     InterpolateSpeedCurve:
@@ -223,7 +237,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    ExtrapolateOption: 1
+    ExtrapolateOption: 0
     ExtrapolateSpeed: 1
     ExtrapolateIncludingRoundTripTime: 1
     ExtrapolateNumberOfStoredPositions: 1
