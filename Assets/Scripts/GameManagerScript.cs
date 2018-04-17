@@ -31,7 +31,11 @@ public class GameManagerScript : Photon.MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if (GameObject.Find("AndroidPlayer(Clone)").GetPhotonView().isMine)
+        if (PhotonNetwork.isMasterClient)
+        {
+            Debug.Log("Mastah");
+        }
+        if (GameObject.Find("AndroidPlayer(Clone)").GetPhotonView().isMine && androidPlayer == null)
         {
             androidPlayer = GameObject.Find("AndroidPlayer(Clone)");
             grab = androidPlayer.GetComponent<AndroidGrab>();
@@ -66,8 +70,7 @@ public class GameManagerScript : Photon.MonoBehaviour
     public void ResetAllBlocks()
     {
 
-        if (PhotonNetwork.isMasterClient)
-        {
+        
             foreach (GameObject go in GameObject.FindGameObjectsWithTag("Block"))
             {
 
@@ -99,11 +102,7 @@ public class GameManagerScript : Photon.MonoBehaviour
 
             }
 
-        }
-        else
-        {
-            return;
-        }
+        
 
     }
 
