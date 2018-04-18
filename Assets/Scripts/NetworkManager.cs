@@ -94,7 +94,7 @@ public class NetworkManager : Photon.PunBehaviour
 
         else if (Hololens)
         {
-            //Spawn Hololens Player
+            GameObject player = PhotonNetwork.Instantiate("HoloLensCamera", new Vector3(.788f, .125f, .84f), new Quaternion(0f, -124.56f, -2.653f, 0f),0);
         }
 
         else if (Android)

@@ -71,7 +71,8 @@ public class GameManagerScript : MonoBehaviour, ISpeechHandler
                 PhotonNetwork.Destroy(go);
             }
             Array.Clear(AllBlocks, 0, 0);
-
+        if (PhotonNetwork.isMasterClient)
+        {
             for (int col = 0; col < layers; col++)
             {
                 if (((col / 2) * 2) == col)
@@ -93,7 +94,7 @@ public class GameManagerScript : MonoBehaviour, ISpeechHandler
 
             }
 
-        
+        }
 
 
     }
