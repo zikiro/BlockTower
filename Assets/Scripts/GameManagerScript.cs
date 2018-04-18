@@ -60,6 +60,7 @@ public class GameManagerScript : MonoBehaviour
             PhotonNetwork.Destroy(go);
         }
         Array.Clear(AllBlocks, 0, 0);
+
         if (PhotonNetwork.isMasterClient)
         {
             for (int col = 0; col < layers; col++)
