@@ -1,0 +1,1 @@
+D:\Ian Mackenzie\BlockTower\App\V1.1 Hololens_Stable\BlockTowerHololens_Data\Block Tower Hololens\Block Tower Hololens.csproj;x86
